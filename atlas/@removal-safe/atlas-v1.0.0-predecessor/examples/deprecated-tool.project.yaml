@@ -1,0 +1,14 @@
+# A deprecated CLI — demonstrates the deprecated-needs-successor rule
+standard: project/1.0
+name: legacy-uploader
+type: tool.cli
+stage: deprecated
+maturity: beta
+packaging: [binary]
+deployment: none
+owner: team:platform
+visibility: internal
+support: none
+successor: bulk-sync
+sunset_date: 2026-12-31
+links: { docs: ./docs/ }

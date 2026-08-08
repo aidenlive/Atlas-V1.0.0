@@ -1,0 +1,10 @@
+# Who must review what. Replace OWNER with your handle or team.
+
+*                       @OWNER
+
+# A rule change needs the people who answer for the standard.
+/spec/                  @OWNER
+/spec/schemas/          @OWNER
+/library/lexicon/       @OWNER
+/project.yaml           @OWNER
+/authority.yaml         @OWNER

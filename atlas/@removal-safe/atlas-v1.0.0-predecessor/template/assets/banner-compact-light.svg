@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 230" role="img" aria-label="{{PROJECT_NAME}} — placeholder banner; replace before going public">
+  <rect width="720" height="230" fill="#ffffff"/>
+  <path d="M0 229.5H720" stroke="#e4e4e4" stroke-width="1"/>
+  <g fill="none" stroke="#111111" stroke-width="2.38" stroke-linejoin="round" stroke-linecap="round"><path d="M27.0 58.5L14.5 64.8L27.0 71.0L39.5 64.8Z"/><path d="M14.5 71.0L27.0 77.2L39.5 71.0"/><path d="M14.5 77.2L27.0 83.5L39.5 77.2"/></g>
+  <g font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace">
+    <text x="12" y="144" font-size="40" font-weight="500" fill="#111111"
+          letter-spacing="-1.2">{{PROJECT_NAME}}</text>
+    <text x="12" y="184" font-size="21" fill="#8f8f8f" letter-spacing="1">REPLACE THIS BANNER</text>
+  </g>
+</svg>

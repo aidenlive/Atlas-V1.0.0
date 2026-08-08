@@ -1,0 +1,3 @@
+List every waiver in the fleet's manifests with its reason, approver, and
+expiry; flag expired ones as failures and any waiver renewed more than twice as
+a decision to change the item or the claim. Propose the resolution for each.

@@ -1,0 +1,3 @@
+Verify every owner in this org or repository names a live successor, and draft
+the succession update for any that do not. Treat a departed or unreachable
+successor as no successor.

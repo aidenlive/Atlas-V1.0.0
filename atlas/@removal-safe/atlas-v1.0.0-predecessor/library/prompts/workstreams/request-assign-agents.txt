@@ -1,0 +1,4 @@
+Write the agent assignments for this workstream: one orchestrator, sub-agents
+with scope as concrete paths or task IDs, a definition of done each, and an
+expiry. Report any assignment you cannot scope concretely rather than writing a
+vague one.

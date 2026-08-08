@@ -1,0 +1,3 @@
+Audit all documentation for drift: run every documented command, follow the
+quickstart on a clean state, and check each claim against the code. Report lies
+with their locations; fix only what I approve.

@@ -1,0 +1,44 @@
+# Repository settings as code, so a change to any of them is reviewable.
+# Applied by the probot/settings app; the values are copied from project.yaml.
+repository:
+  name: atlas
+  description: "Declared, versioned, machine-checked standards for company writing"
+  homepage: https://github.com/OWNER/atlas
+  topics: editorial, writing-standards, style-guide, content-operations, documentation, governance, cli, ai-agents
+  has_issues: true
+  has_wiki: false
+  has_projects: false
+  default_branch: main
+  allow_squash_merge: true
+  allow_merge_commit: false
+  allow_rebase_merge: false
+  delete_branch_on_merge: true
+
+branches:
+  - name: main
+    protection:
+      required_pull_request_reviews:
+        required_approving_review_count: 1
+        dismiss_stale_reviews: true
+        require_code_owner_reviews: true
+      required_status_checks:
+        strict: true
+        contexts:
+          - standard
+          - tests (py3.12)
+      enforce_admins: false
+      restrictions: null
+
+labels:
+  - name: standard
+    color: "5C4B8A"
+    description: Changes what the standard requires
+  - name: editorial
+    color: "2F6FB0"
+    description: Wording, examples, or formatting
+  - name: tooling
+    color: "2F7A46"
+    description: The CLI, the gates, or the linter
+  - name: lexicon
+    color: "8A5A2B"
+    description: A term or phrasing decision

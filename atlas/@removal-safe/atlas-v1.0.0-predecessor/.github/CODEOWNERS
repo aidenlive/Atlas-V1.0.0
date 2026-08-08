@@ -1,0 +1,7 @@
+# Review routing derives from the duties block (spec/admin.md §7).
+# Replace with real handles/teams on adoption.
+*            @OWNER
+/spec/       @OWNER            # normative changes: spec owner reviews
+/work/       @OWNER            # workstream records are auditable evidence
+/prompts/    @OWNER            # prompts are conventions; review them as such
+/.github/    @OWNER

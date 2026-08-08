@@ -1,0 +1,4 @@
+Plan the proposed breaking change per gate QG-04: semver-major impact, migration
+notes, a deprecation window for the prior surface, and consumer notification
+through their actual channels. Output the plan and timeline before any code
+changes.

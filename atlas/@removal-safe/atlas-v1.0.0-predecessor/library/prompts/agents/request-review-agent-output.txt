@@ -1,0 +1,4 @@
+Review this agent-produced change as a maintainer would: correctness against the
+task, compliance with conventions and constraints, test and changelog presence,
+and any scope the agent silently added or dropped. Approve, request changes, or
+reject with reasons.

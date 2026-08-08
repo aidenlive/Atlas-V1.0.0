@@ -1,0 +1,3 @@
+Wire structured logging, golden-signal metrics, and alerts routed to the owning
+duty holders for this deployment, as code under ops/. An alert with no owner is
+noise; a metric no alert reads is decoration.

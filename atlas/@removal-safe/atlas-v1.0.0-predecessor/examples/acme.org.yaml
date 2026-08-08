@@ -1,0 +1,28 @@
+# ADMIN organization profile — teams, grants, policies, agent limits
+standard: admin/1.0
+org: acme
+stewards: [person:ada, person:lin, person:sam]
+teams:
+  payments:
+    charter: "Owns money movement services and their correctness."
+    lead: person:jsmith
+    members: [person:jsmith, person:kwu, agent:payments-ci]
+    grants:
+      - { role: maintainer, scope: "project:invoice-api" }
+      - { role: contributor, scope: "org:acme" }
+policies:
+  default_role: contributor
+  default_visibility: internal
+  review_cadence: quarterly
+  elevation_ttl_max: P30D
+  two_key_acts: [transfer, delete-prod-data, org-policy, widen-visibility, billing-major]
+  agent_policy:
+    max_role: maintainer
+    credential_ttl_max: P90D
+    forbidden: [force-push, delete-repo, modify-org-policy, spend-above-limit]
+billing:
+  owner: person:ada
+  cost_centers: { payments: team:payments, platform: team:infra }
+compliance:
+  frameworks: []
+  evidence_dir: governance/evidence/

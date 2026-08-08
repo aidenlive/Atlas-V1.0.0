@@ -1,0 +1,4 @@
+Produce an architecture diagram of this repository or system as a hand-editable
+SVG or Mermaid file under docs/architecture/ or assets/, with meaningful alt
+text and the fleet's visual style. Show parts and data flow, not implementation
+trivia.

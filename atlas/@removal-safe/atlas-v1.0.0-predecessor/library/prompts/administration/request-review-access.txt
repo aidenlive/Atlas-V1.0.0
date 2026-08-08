@@ -1,0 +1,3 @@
+Run an access review against org.yaml and admin.yaml: list every grant, its
+scope, its last affirmation, and whether the holder still needs it. Apply lapse-
+to-revoke — anything unaffirmed is proposed for revocation, not renewal.

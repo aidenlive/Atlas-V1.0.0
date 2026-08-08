@@ -1,0 +1,4 @@
+Perform a full backup restore test for this stateful service: restore to an
+isolated environment, verify data integrity and application function, record
+duration against the declared RPO/RTO, and file the evidence. An untested
+restore is a rumor.

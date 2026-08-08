@@ -1,0 +1,1 @@
+Read the document below and identify every place where prose is doing a list's or a table's job. For each, say which element it should be, and why that one.

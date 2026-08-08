@@ -1,0 +1,3 @@
+Write docs/architecture/ for this system: the parts, their relations, the trust
+boundaries, and the load-bearing design decisions with rationale. Prefer
+diagrams-as-code; link every decision to its ADR or create the missing one.

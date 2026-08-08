@@ -1,0 +1,4 @@
+Run dependency vulnerability and license scanning, waiver-check any known-
+critical findings, and verify the automated update flow is alive (no bot PRs
+older than 30 days). Summarize what ships in the artifact versus what is dev-
+only.

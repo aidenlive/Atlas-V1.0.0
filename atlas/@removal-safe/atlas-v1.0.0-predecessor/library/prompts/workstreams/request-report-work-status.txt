@@ -1,0 +1,3 @@
+Produce a status report across all live workstreams: progress against targets,
+blocked work with its blocker, agent assignments in flight, and the workstreams
+whose status claims look stale. Lead with what needs a decision.

@@ -1,0 +1,22 @@
+# An internal payments API (Matrix worked example 2)
+standard: project/1.0
+name: invoice-api
+type: service.api
+interfaces: [http-api, cli]
+stage: active
+maturity: hardened
+packaging: [container]
+deployment: managed.k8s
+owner: team:payments
+visibility: internal
+language: [python]
+support: sla
+successor: null
+metadata:
+  description: "Internal payments API: money movement with hardened SLOs"
+  website: ./docs/
+  topics: [service, payments, http-api, kubernetes]
+links:
+  docs: ./docs/
+  runbook: ./ops/runbook.md
+  tracker: https://tracker.internal/invoice-api

@@ -1,0 +1,1 @@
+Write the instructions an AI assistant needs to draft the piece below: the standards it must follow, the terminology file to read, the shape to produce, and what it must not decide on its own.

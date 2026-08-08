@@ -1,0 +1,1 @@
+Write two concrete examples for the concept below: one showing the common case and one showing the edge case people actually hit. Use realistic names and numbers rather than foo and bar.

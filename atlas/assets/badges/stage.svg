@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="125.8" height="28" role="img" aria-label="stage: active">
+  <title>stage: active</title>
+  <rect width="125.8" height="28" rx="6" fill="#FFFFFF"/>
+  <rect x="0.5" y="0.5" width="124.8" height="27" rx="5.5" fill="none" stroke="#E3DFD7"/>
+  <circle cx="14" cy="14" r="4" fill="#2F7A46"/>
+  <text x="26" y="18" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#1B1A17">stage: active</text>
+</svg>

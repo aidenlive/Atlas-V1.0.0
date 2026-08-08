@@ -1,0 +1,3 @@
+Audit this repository against the SEC checklist items: secret scanning,
+dependency vulnerabilities, SAST, least-privilege CI, and the presence of a real
+disclosure channel. Report findings by severity with the smallest fix for each.

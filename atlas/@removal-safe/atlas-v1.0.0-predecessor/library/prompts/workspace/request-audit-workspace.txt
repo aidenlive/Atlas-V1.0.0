@@ -1,0 +1,4 @@
+Audit this workspace against spec/workspace.md: report files loitering in the
+inbox, naming violations, writes inside the archive, duplicate homes, and
+projects in active/ untouched for 60+ days. Output a prioritized violation list;
+fix nothing without confirmation.

@@ -1,0 +1,3 @@
+Create the canonical WORKSPACE tree (00_inbox through 05_archive plus code/,
+notes/, assets/, scripts/) idempotently at the given root, with the sentinel
+README explaining the system in place. Touch nothing that already exists.

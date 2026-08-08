@@ -1,0 +1,3 @@
+Run the archive ceremony for the named project folder: verify or draft its
+_about.md, normalize names to the standard, write a SHA256SUMS manifest, and
+move it to 05_archive/<year-ended>/. Refuse to proceed without the _about.md.

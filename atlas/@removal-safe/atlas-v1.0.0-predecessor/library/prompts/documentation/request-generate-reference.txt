@@ -1,0 +1,3 @@
+Generate or refresh docs/reference/ for this project's public surface (API, CLI,
+or config) from the source of truth, and wire the generation into CI so the
+reference cannot drift from the code.

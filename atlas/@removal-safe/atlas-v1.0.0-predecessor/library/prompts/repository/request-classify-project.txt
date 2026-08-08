@@ -1,0 +1,4 @@
+Classify this project honestly along the eight Matrix dimensions in
+spec/project-matrix.md and write or correct project.yaml, validating it against
+spec/schemas/project.schema.json. Where a classification is arguable, state the
+alternatives and why you chose.

@@ -1,0 +1,4 @@
+Write or tighten the Constraints section of AGENTS.md: files never to edit,
+generated paths, protected branches, secret locations, and destructive commands
+requiring human confirmation. Every constraint must be specific enough for an
+agent to obey mechanically.

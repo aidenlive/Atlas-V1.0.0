@@ -1,0 +1,3 @@
+Re-verify every SHA256SUMS manifest in 05_archive/ and report checksum
+mismatches, unmanifested folders, and any file modified after deposit. The
+archive is immutable; treat every finding as an incident, not a cleanup task.

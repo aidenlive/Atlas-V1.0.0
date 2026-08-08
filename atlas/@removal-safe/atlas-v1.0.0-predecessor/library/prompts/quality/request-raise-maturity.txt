@@ -1,0 +1,3 @@
+Plan the promotion of this project to the next maturity level: list every
+checklist item newly required, its current status, and the work to close each
+gap. The claim changes only when the profile passes.

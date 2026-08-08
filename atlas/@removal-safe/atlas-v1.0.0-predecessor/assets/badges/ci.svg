@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="185" height="20" viewBox="0 0 185 20" role="img" aria-label="ci: tests + compliance">
+  <title>ci: tests + compliance</title>
+  <rect x="0.5" y="0.5" width="184" height="19" rx="4" fill="#ffffff" stroke="#e0e0e0"/>
+  <g font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="11" letter-spacing="0.4">
+    <text x="8" y="14" fill="#5e5e5e">CI</text>
+    <circle cx="35.8" cy="10.0" r="3.0" fill="#1f7a4d"/>
+    <text x="43.8" y="14" fill="#111111">tests + compliance</text>
+  </g>
+</svg>

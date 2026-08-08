@@ -1,0 +1,3 @@
+Declare branch protection for the default branch in settings-as-code: required
+reviews, required status checks matching the CI job names, no force pushes, and
+squash-only merges. Explain any rule you relax and why.

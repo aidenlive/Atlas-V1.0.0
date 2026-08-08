@@ -1,0 +1,3 @@
+Create a hero banner for this project as a hand-authored SVG in assets/
+following the fleet geometry: dark substrate, accent gradient, wordmark, one-
+line value proposition. It must degrade gracefully to its alt text.

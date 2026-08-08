@@ -1,0 +1,4 @@
+Triage everything in 00_inbox: propose one canonical home per file using the
+naming pattern date_what_context_version, flag items older than 7 days, and list
+anything with no plausible future value for disposal. Move files only after I
+approve the plan.

@@ -1,0 +1,4 @@
+Evaluate this repository against the checklist profile for its claimed maturity,
+item by item, honoring applicability tags from its manifest. Output per-item
+pass, fail, or waived status with evidence, and flag any claim the results do
+not support.

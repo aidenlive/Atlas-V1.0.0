@@ -1,0 +1,3 @@
+Update CHANGELOG.md from the commits since the last release, in Keep-a-Changelog
+format under Unreleased, written for consumers rather than committers. Flag
+anything that looks like an undeclared breaking change.

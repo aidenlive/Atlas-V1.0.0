@@ -1,0 +1,60 @@
+name: ci
+
+# Two jobs, in the order a reviewer cares about them: does the repository meet
+# its own standard, and does the tooling that decides that still work?
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compliance:
+    name: standard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # `atlas lint --changed` needs history
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[dev]"
+      - name: Repository against the standard
+        run: atlas check
+      - name: Prose against the standards
+        run: atlas lint --strict
+      - name: Manifests and examples
+        run: |
+          atlas validate project.yaml authority.yaml
+          atlas validate examples/*.yaml
+      - name: Generated views are current
+        run: |
+          python scripts/build_reference.py
+          python scripts/build_library.py
+          python scripts/build_assets.py
+          python scripts/build_screenshots.py
+          atlas work sync
+          git diff --exit-code || {
+            echo "::error::a generated file is out of date — run the build scripts and commit";
+            exit 1;
+          }
+
+  tests:
+    name: tests (py${{ matrix.python }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e ".[dev]"
+      - run: python -m pytest tests/ -q

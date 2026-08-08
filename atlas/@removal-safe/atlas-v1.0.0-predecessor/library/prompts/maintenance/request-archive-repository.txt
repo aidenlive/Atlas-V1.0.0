@@ -1,0 +1,4 @@
+Execute the archival gate: confirm the sunset date passed, tag the final
+release, mark registry packages deprecated with a pointer, decommission running
+deployments, and archive the repository on the forge so the state is
+mechanically true.

@@ -1,0 +1,11 @@
+# Replaced by `atlas work new`. Edit freely afterwards; `atlas work validate`
+# checks it against spec/schemas/workstream.schema.json.
+id: 00_template
+title: Template
+status: planned
+owner: role:editorial-lead
+kind: guide
+audience: internal
+opened: 2026-08-08
+target: null
+standards: [voice, structure, checklist]

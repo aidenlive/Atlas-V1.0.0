@@ -1,0 +1,5 @@
+# Kept for a bare checkout that cannot `pip install -e .`.
+# pyproject.toml is the source of truth for dependencies; this mirrors it.
+PyYAML>=6.0
+jsonschema>=4.21
+pytest>=8.0

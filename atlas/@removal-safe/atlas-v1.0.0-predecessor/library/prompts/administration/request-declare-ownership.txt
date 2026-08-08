@@ -1,0 +1,4 @@
+Write or correct the ownership facts for this project: owner in project.yaml,
+the duties block and successor in admin.yaml, and CODEOWNERS derived from the
+review duty. Flag any duty that currently has no real holder as unowned rather
+than papering over it.

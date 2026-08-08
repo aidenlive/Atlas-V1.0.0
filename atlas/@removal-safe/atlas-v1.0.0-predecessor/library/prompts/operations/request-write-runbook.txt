@@ -1,0 +1,3 @@
+Write ops/runbook.md for this service: start, stop, deploy, roll back, the
+common failure modes with their remedies, and the escalation path with real duty
+holders. Every procedure must be executable as written.

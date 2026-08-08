@@ -1,0 +1,3 @@
+Write the handoff for the work just completed: what was done, what remains,
+where the artifacts are, known risks, and the single next action for the
+receiver. Save it as a dated file in the workstream's handoffs directory.

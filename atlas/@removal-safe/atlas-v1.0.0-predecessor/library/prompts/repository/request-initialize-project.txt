@@ -1,0 +1,4 @@
+Initialize this repository to atlas compliance: the required root
+documents, a schema-valid project.yaml classified along all eight Matrix
+dimensions, the canonical directory layout, and vendor agent stubs pointing to
+AGENTS.md. Finish by running the compliance checker and fixing every violation.

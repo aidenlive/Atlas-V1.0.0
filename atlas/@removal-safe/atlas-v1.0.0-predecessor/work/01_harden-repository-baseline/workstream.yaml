@@ -1,0 +1,27 @@
+standard: workstream/1.0
+id: '01'
+slug: harden-repository-baseline
+title: Harden the repository into a canonical v0.0.1 baseline
+summary: Audit the draft repository from first principles, consolidate duplicated
+  sources of truth, correct factual drift in the documentation, and establish the
+  conventions the organization will scale on.
+status: done
+owner: person:maintainer
+opened: '2026-08-07'
+target: '2026-08-07'
+closed: '2026-08-07'
+progress:
+  tasks_total: 9
+  tasks_done: 9
+depends_on: []
+blocks: []
+relates_to: []
+agents:
+- id: agent:auditor
+  role: orchestrator
+  scope: whole repository; read-write across spec/, docs/, scripts/, tests/, template/
+  expires: '2026-12-31'
+tags:
+- baseline
+- consolidation
+- documentation

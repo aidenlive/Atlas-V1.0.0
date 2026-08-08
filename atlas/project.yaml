@@ -1,0 +1,33 @@
+# project.yaml — the machine-readable source of truth for this repository.
+# Validated in CI: `atlas validate project.yaml`.
+standard: editorial/1.0        # the CONTRACT version — see docs/reference/versioning.md
+name: atlas
+kind: standards                # this repository holds the standards themselves
+stage: active
+maturity: stable               # earned: the suite is self-hosting, every gate passes,
+                               # the CLI reference is generated from the parser, and
+                               # the starter template passes what it teaches
+owner: role:editorial-lead     # a role, not a person — see authority.yaml
+audiences: [internal, developers, leadership]
+channels: [repository, docs-site, handbook]
+languages: [en]
+visibility: public
+support: maintained
+successor: null
+
+metadata:                      # PUBLICATION P-01; applied via .github/settings.yml
+  description: "Declared, versioned, machine-checked standards for company writing"
+  website: https://github.com/OWNER/atlas
+  topics: [editorial, writing-standards, style-guide, content-operations, documentation, governance, cli, ai-agents]
+
+links:
+  docs: ./docs/
+  spec: ./spec/
+  cli: ./docs/reference/cli.md
+  lexicon: ./library/lexicon/terms.yaml
+  tracker: https://github.com/OWNER/atlas/issues
+
+lint:                          # house numbers; omit to accept the defaults
+  max_sentence_words: 34
+  max_paragraph_sentences: 6
+  max_heading_depth: 4

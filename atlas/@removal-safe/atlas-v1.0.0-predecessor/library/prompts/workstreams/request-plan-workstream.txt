@@ -1,0 +1,3 @@
+Draft this workstream's plan and milestones: the phased approach, why it beats
+the alternatives considered, and the assumptions that are actually unverified
+facts. Turn each phase into tasks with owners in the task table.

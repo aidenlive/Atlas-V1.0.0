@@ -1,0 +1,4 @@
+Revive the named maintenance-mode or archived work as an explicit event: for
+archived code, a new project that copies from history rather than reanimating
+the old repo; either way, a changelog entry, refreshed manifest, and re-run
+quality gates before any new release.

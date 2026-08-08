@@ -1,0 +1,3 @@
+Decompose this project's ownership into the six named duties (triage, review,
+release, security, oncall, renewal) with a named holder each, and record them in
+admin.yaml. Report any duty the current team cannot actually staff.

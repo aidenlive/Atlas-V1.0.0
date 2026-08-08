@@ -1,0 +1,1 @@
+Line-edit the passage below for clarity and rhythm, keeping the author's voice and every technical detail intact. Return the edit, then a short list of the changes that were judgement calls rather than corrections.

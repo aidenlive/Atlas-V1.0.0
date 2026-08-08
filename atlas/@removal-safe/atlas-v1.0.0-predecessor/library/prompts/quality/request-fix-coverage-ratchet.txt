@@ -1,0 +1,3 @@
+Configure coverage measurement with a ratchet (coverage may not decrease) rather
+than a fixed threshold, and make CI fail on regression. Report the current
+baseline and the least-covered public surfaces.

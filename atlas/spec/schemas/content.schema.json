@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://atlas.example/spec/schemas/content.schema.json",
+  "title": "Atlas content front matter",
+  "description": "The facts a single document declares about itself, in the YAML block at the top of the file.",
+  "type": "object",
+  "required": ["title", "kind", "owner", "status", "updated"],
+  "properties": {
+    "title": {"type": "string", "minLength": 3},
+    "kind": {
+      "type": "string",
+      "enum": ["standard", "guide", "reference", "explainer", "decision", "announcement", "policy", "template", "brief", "note"]
+    },
+    "owner": {"type": "string", "pattern": "^(person|role|team|agent):[a-z0-9-]+$"},
+    "status": {"type": "string", "enum": ["draft", "review", "published", "superseded", "retired"]},
+    "updated": {"type": "string", "format": "date"},
+    "review_by": {"type": "string", "format": "date"},
+    "audience": {"type": "array", "items": {"type": "string"}},
+    "reviewers": {"type": "array", "items": {"type": "string"}},
+    "summary": {"type": "string", "maxLength": 200},
+    "supersedes": {"type": "string"},
+    "generated_by": {"type": "string"}
+  }
+}

@@ -1,0 +1,27 @@
+# project.yaml — the machine-readable source of truth for this repository.
+# Validated in CI: `atlas validate project.yaml`.
+standard: project/1.0          # the CONTRACT version — see docs/reference/versioning.md
+name: atlas
+type: content.spec
+interfaces: [cli, template]    # a specification suite with a first-class CLI and a scaffold
+stage: active
+maturity: stable               # earned: Baseline, Beta, and Production profiles pass —
+                               # packaged and installable, CLI reference generated from
+                               # the parser, compliance enforced by the tool itself, and
+                               # the suite is self-hosting.
+packaging: [source, registry]    # source here; published to PyPI as `atlas-standard`
+deployment: none
+owner: person:maintainer       # replace with your handle or team:<name>
+visibility: public
+language: [markdown, python, bash]
+support: best-effort
+successor: null
+metadata:                      # PRESENTATION P-01..P-05; applied via .github/settings.yml
+  description: "Declared, versioned, machine-checked structure for files, repositories, quality, authority, and intent"
+  website: https://github.com/OWNER/atlas
+  topics: [content, open-standard, repository-template, governance, ai-agents, developer-experience, project-management, cli]
+links:
+  docs: ./docs/
+  spec: ./spec/
+  cli: ./docs/reference/cli.md
+  tracker: https://github.com/OWNER/atlas/issues

@@ -1,0 +1,3 @@
+Onboard yourself to this repository by reading AGENTS.md end to end, confirming
+each command in its Commands section runs, and restating the constraints and
+definition of done in your own words before taking any action.

@@ -1,0 +1,4 @@
+Review the current architecture against its documentation: find drift between
+docs and code, single points of failure, and boundaries that exist in prose but
+not in the module graph. Report findings with severity; propose the smallest
+correcting changes.

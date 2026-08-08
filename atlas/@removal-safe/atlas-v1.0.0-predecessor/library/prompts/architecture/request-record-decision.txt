@@ -1,0 +1,3 @@
+Record the decision we just made as the next numbered ADR in docs/decisions/
+(context, decision, consequences), immutable once accepted. If it supersedes an
+earlier ADR, link both directions; never edit the old one.

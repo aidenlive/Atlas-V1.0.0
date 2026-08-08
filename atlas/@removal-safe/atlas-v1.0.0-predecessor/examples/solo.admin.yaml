@@ -1,0 +1,7 @@
+# ADMIN solo profile: five lines that survive a bus
+standard: admin/1.0
+profile: solo
+owner: person:jdoe
+successor: person:kwu
+grants:
+  - { principal: agent:repo-bot, role: maintainer, scope: "project:fast-invoices", expires: 2026-11-01 }

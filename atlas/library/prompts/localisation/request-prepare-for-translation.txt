@@ -1,0 +1,1 @@
+Flag everything in the document below that will translate badly: idioms, culture-specific examples, puns, and units or dates in a local format. Suggest a neutral alternative for each.

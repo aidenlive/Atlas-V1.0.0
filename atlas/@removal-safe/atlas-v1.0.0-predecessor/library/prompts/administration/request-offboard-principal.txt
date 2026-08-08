@@ -1,0 +1,4 @@
+Execute offboarding for the named principal: enumerate their grants for
+revocation, transfer their duties per the succession declarations, and list
+every secret they could have held for rotation. Produce the checklist first; act
+only on approval.

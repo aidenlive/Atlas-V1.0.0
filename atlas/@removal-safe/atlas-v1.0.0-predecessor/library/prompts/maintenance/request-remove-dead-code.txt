@@ -1,0 +1,4 @@
+Find code that is unreachable, unimported, or feature-flagged off permanently,
+and delete it in one well-labeled commit with a changelog entry and, for
+significant removals, a removed/ tag. Git is the archive; create no graveyard
+directories.

@@ -1,0 +1,4 @@
+Write SECURITY.md with a private disclosure channel, scope of what counts as a
+vulnerability here, and an acknowledgement target consistent with the declared
+support level. No security theater — promise only what the duty holder can
+honor.

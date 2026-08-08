@@ -1,0 +1,3 @@
+Run the four-pass adoption from docs/guides/adoption.md on this existing
+repository: manifest first, root cleanup, truth consolidation, then CI
+enforcement. Work one pass at a time and show me the diff before each commit.

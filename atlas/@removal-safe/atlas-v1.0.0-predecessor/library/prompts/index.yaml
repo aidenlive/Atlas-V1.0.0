@@ -1,0 +1,301 @@
+# library/prompts/index.yaml — machine-readable catalog; tests keep it in sync with files
+standard: library/1.0
+categories:
+- name: workspace
+  description: 'Operating the WORKSPACE standard: capture, filing, archiving, integrity.'
+  prompts:
+  - id: audit-workspace
+    file: workspace/request-audit-workspace.txt
+    objective: Audit this workspace against spec/workspace
+  - id: scaffold-workspace
+    file: workspace/request-scaffold-workspace.txt
+    objective: Create the canonical WORKSPACE tree (00_inbox through 05_archive plus code/, notes/, assets/,
+      scripts/) idempo
+  - id: drain-inbox
+    file: workspace/request-drain-inbox.txt
+    objective: Triage everything in 00_inbox
+  - id: archive-project-folder
+    file: workspace/request-archive-project-folder.txt
+    objective: Run the archive ceremony for the named project folder
+  - id: plan-workspace-migration
+    file: workspace/request-plan-workspace-migration.txt
+    objective: Plan a migration of my current file mess into WORKSPACE using the four bounded passes (scaffold,
+      declare bankr
+  - id: verify-archive-integrity
+    file: workspace/request-verify-archive-integrity.txt
+    objective: Re-verify every SHA256SUMS manifest in 05_archive/ and report checksum mismatches, unmanifested
+      folders, and a
+- name: repository
+  description: 'Bringing a repository to PROJECT.md compliance: root, manifest, truth consolidation.'
+  prompts:
+  - id: initialize-project
+    file: repository/request-initialize-project.txt
+    objective: Initialize this repository to atlas compliance
+  - id: classify-project
+    file: repository/request-classify-project.txt
+    objective: Classify this project honestly along the eight Matrix dimensions in spec/project-matrix
+  - id: adopt-standard
+    file: repository/request-adopt-standard.txt
+    objective: Run the four-pass adoption from docs/guides/adoption
+  - id: write-agents-guide
+    file: repository/request-write-agents-guide.txt
+    objective: Write or update AGENTS
+  - id: consolidate-truth
+    file: repository/request-consolidate-truth.txt
+    objective: Find every fact stated in more than one place in this repository (setup steps, ownership,
+      versions, convention
+  - id: close-root
+    file: repository/request-close-root.txt
+    objective: Enforce the closed root set
+- name: architecture
+  description: Designing, recording, and reviewing system structure.
+  prompts:
+  - id: document-architecture
+    file: architecture/request-document-architecture.txt
+    objective: Write docs/architecture/ for this system
+  - id: record-decision
+    file: architecture/request-record-decision.txt
+    objective: Record the decision we just made as the next numbered ADR in docs/decisions/ (context,
+      decision, consequences)
+  - id: draw-system-diagram
+    file: architecture/request-draw-system-diagram.txt
+    objective: Produce an architecture diagram of this repository or system as a hand-editable SVG or
+      Mermaid file under docs
+  - id: review-architecture
+    file: architecture/request-review-architecture.txt
+    objective: Review the current architecture against its documentation
+  - id: threat-model
+    file: architecture/request-threat-model.txt
+    objective: Write the one-page threat model sketch required by checklist item SEC-06
+- name: documentation
+  description: Keeping prose truthful, single-sourced, and structured per docs/ conventions.
+  prompts:
+  - id: audit-documentation
+    file: documentation/request-audit-documentation.txt
+    objective: Audit all documentation for drift
+  - id: write-readme
+    file: documentation/request-write-readme.txt
+    objective: Write or rebuild README
+  - id: update-changelog
+    file: documentation/request-update-changelog.txt
+    objective: Update CHANGELOG
+  - id: write-guide
+    file: documentation/request-write-guide.txt
+    objective: Write a task-oriented guide in docs/guides/ for the named workflow
+  - id: generate-reference
+    file: documentation/request-generate-reference.txt
+    objective: Generate or refresh docs/reference/ for this project's public surface (API, CLI, or config)
+      from the source of
+- name: github
+  description: Forge configuration as declared, reviewable state.
+  prompts:
+  - id: configure-forge-metadata
+    file: github/request-configure-forge-metadata.txt
+    objective: Set this repository's forge metadata from project
+  - id: setup-branch-protection
+    file: github/request-setup-branch-protection.txt
+    objective: Declare branch protection for the default branch in settings-as-code
+  - id: setup-ci
+    file: github/request-setup-ci.txt
+    objective: Create or repair the CI workflow so every PR runs build, tests, lint, the standard-compliance
+      job, and commit-
+  - id: triage-issues
+    file: github/request-triage-issues.txt
+    objective: Triage the open issues per the declared support policy
+  - id: sync-settings
+    file: github/request-sync-settings.txt
+    objective: Detect drift between
+- name: administration
+  description: Authority, duties, access, and succession per ADMIN.
+  prompts:
+  - id: declare-ownership
+    file: administration/request-declare-ownership.txt
+    objective: Write or correct the ownership facts for this project
+  - id: assign-duties
+    file: administration/request-assign-duties.txt
+    objective: Decompose this project's ownership into the six named duties (triage, review, release,
+      security, oncall, renew
+  - id: review-access
+    file: administration/request-review-access.txt
+    objective: Run an access review against org
+  - id: offboard-principal
+    file: administration/request-offboard-principal.txt
+    objective: Execute offboarding for the named principal
+  - id: provision-agent
+    file: administration/request-provision-agent.txt
+    objective: Provision the named AI agent as a first-class principal
+  - id: plan-succession
+    file: administration/request-plan-succession.txt
+    objective: Verify every owner in this org or repository names a live successor, and draft the succession
+      update for any t
+- name: quality
+  description: Gates, maturity claims, tests, and waivers per PROJECT-CHECKLIST.
+  prompts:
+  - id: run-quality-gates
+    file: quality/request-run-quality-gates.txt
+    objective: Evaluate this repository against the checklist profile for its claimed maturity, item by
+      item, honoring applic
+  - id: raise-maturity
+    file: quality/request-raise-maturity.txt
+    objective: Plan the promotion of this project to the next maturity level
+  - id: add-tests
+    file: quality/request-add-tests.txt
+    objective: "Add automated tests covering the quickstart path and every documented public behavior\
+      \ \u2014 the docs are the test "
+  - id: fix-coverage-ratchet
+    file: quality/request-fix-coverage-ratchet.txt
+    objective: Configure coverage measurement with a ratchet (coverage may not decrease) rather than a
+      fixed threshold, and m
+  - id: review-waivers
+    file: quality/request-review-waivers.txt
+    objective: List every waiver in the fleet's manifests with its reason, approver, and expiry; flag
+      expired ones as failure
+- name: security
+  description: Scanning, credentials, disclosure, and response.
+  prompts:
+  - id: security-audit
+    file: security/request-security-audit.txt
+    objective: Audit this repository against the SEC checklist items
+  - id: scan-dependencies
+    file: security/request-scan-dependencies.txt
+    objective: Run dependency vulnerability and license scanning, waiver-check any known-critical findings,
+      and verify the au
+  - id: rotate-credentials
+    file: security/request-rotate-credentials.txt
+    objective: 'Enumerate every credential this project or principal touches, verify each is scoped, single-owner,
+      and within '
+  - id: write-security-policy
+    file: security/request-write-security-policy.txt
+    objective: Write SECURITY
+  - id: respond-to-vulnerability
+    file: security/request-respond-to-vulnerability.txt
+    objective: Handle the reported vulnerability end to end
+- name: releases
+  description: 'Versioning ceremonies: tag is truth.'
+  prompts:
+  - id: prepare-release
+    file: releases/request-prepare-release.txt
+    objective: Prepare the next release
+  - id: cut-release
+    file: releases/request-cut-release.txt
+    objective: Execute the release ceremony
+  - id: write-release-notes
+    file: releases/request-write-release-notes.txt
+    objective: Write release notes for the new version derived from CHANGELOG
+  - id: verify-release
+    file: releases/request-verify-release.txt
+    objective: Verify the just-published release as a consumer would
+  - id: plan-breaking-change
+    file: releases/request-plan-breaking-change.txt
+    objective: Plan the proposed breaking change per gate QG-04
+- name: maintenance
+  description: Fleet health and honest lifecycle transitions.
+  prompts:
+  - id: audit-fleet-health
+    file: maintenance/request-audit-fleet-health.txt
+    objective: Survey every project
+  - id: deprecate-project
+    file: maintenance/request-deprecate-project.txt
+    objective: Execute the deprecation gate for this project
+  - id: archive-repository
+    file: maintenance/request-archive-repository.txt
+    objective: Execute the archival gate
+  - id: revive-project
+    file: maintenance/request-revive-project.txt
+    objective: Revive the named maintenance-mode or archived work as an explicit event
+  - id: remove-dead-code
+    file: maintenance/request-remove-dead-code.txt
+    objective: Find code that is unreachable, unimported, or feature-flagged off permanently, and delete
+      it in one well-label
+  - id: renew-assets
+    file: maintenance/request-renew-assets.txt
+    objective: "Inventory every expiring asset this project depends on \u2014 domains, certificates, licenses,\
+      \ vendor contracts, to"
+- name: design
+  description: Visual identity and README composition per PRESENTATION.
+  prompts:
+  - id: apply-brand
+    file: design/request-apply-brand.txt
+    objective: Apply the fleet visual identity to this repository
+  - id: create-banner
+    file: design/request-create-banner.txt
+    objective: Create a hero banner for this project as a hand-authored SVG in assets/ following the fleet
+      geometry
+  - id: compose-readme-visuals
+    file: design/request-compose-readme-visuals.txt
+    objective: Rework the README's first screen to the P-06 composition
+  - id: audit-presentation
+    file: design/request-audit-presentation.txt
+    objective: Audit this repository against PRESENTATION items PR-01
+- name: agents
+  description: Operating AI agents as governed principals.
+  prompts:
+  - id: onboard-agent
+    file: agents/request-onboard-agent.txt
+    objective: Onboard yourself to this repository by reading AGENTS
+  - id: define-agent-constraints
+    file: agents/request-define-agent-constraints.txt
+    objective: Write or tighten the Constraints section of AGENTS
+  - id: verify-agent-compliance
+    file: agents/request-verify-agent-compliance.txt
+    objective: Review the recent agent-authored changes in this repository against AGENTS
+  - id: delegate-task
+    file: agents/request-delegate-task.txt
+    objective: Turn the following goal into a well-posed agent task
+  - id: review-agent-output
+    file: agents/request-review-agent-output.txt
+    objective: Review this agent-produced change as a maintainer would
+- name: workstreams
+  description: 'Running the work management system: workstreams, tasks, agents, verification.'
+  prompts:
+  - id: open-workstream
+    file: workstreams/request-open-workstream.txt
+    objective: Open a new workstream for the named initiative
+  - id: plan-workstream
+    file: workstreams/request-plan-workstream.txt
+    objective: Draft this workstream's plan and milestones
+  - id: update-workstream-status
+    file: workstreams/request-update-workstream-status.txt
+    objective: Reconcile this workstream with reality
+  - id: assign-agents
+    file: workstreams/request-assign-agents.txt
+    objective: Write the agent assignments for this workstream
+  - id: write-handoff
+    file: workstreams/request-write-handoff.txt
+    objective: Write the handoff for the work just completed
+  - id: verify-workstream
+    file: workstreams/request-verify-workstream.txt
+    objective: Verify this workstream against its own acceptance criteria
+  - id: close-workstream
+    file: workstreams/request-close-workstream.txt
+    objective: Close this workstream
+  - id: triage-blockers
+    file: workstreams/request-triage-blockers.txt
+    objective: Review every open issue, blocker, and risk across the live workstreams, and report those
+      with no owner, no mit
+  - id: report-work-status
+    file: workstreams/request-report-work-status.txt
+    objective: Produce a status report across all live workstreams
+- name: operations
+  description: 'Running services: runbooks, observability, failure practice.'
+  prompts:
+  - id: write-runbook
+    file: operations/request-write-runbook.txt
+    objective: Write ops/runbook
+  - id: setup-observability
+    file: operations/request-setup-observability.txt
+    objective: Wire structured logging, golden-signal metrics, and alerts routed to the owning duty holders
+      for this deployme
+  - id: exercise-rollback
+    file: operations/request-exercise-rollback.txt
+    objective: Exercise the rollback procedure for this service in a safe environment, record the actual
+      time and steps taken
+  - id: test-restore
+    file: operations/request-test-restore.txt
+    objective: Perform a full backup restore test for this stateful service
+  - id: handle-incident
+    file: operations/request-handle-incident.txt
+    objective: Coordinate the active incident per the runbook
+  - id: write-postmortem
+    file: operations/request-write-postmortem.txt
+    objective: Write the blameless postmortem for the named incident

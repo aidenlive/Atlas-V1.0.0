@@ -1,0 +1,11 @@
+# Icons — index for library/icons/ (LIBRARY L-A2).
+# Every asset in this directory appears here; every entry here has a file.
+# Checked in both directions by tests/test_library.py.
+
+assets: []
+# Example entry — delete when the first icon lands:
+#   - id: arrow-right
+#     file: arrow-right.svg
+#     description: Directional arrow, points to the inline end
+#     source: authored          # L-A4
+#     license: null             # L-A5 — null means the organization authored it

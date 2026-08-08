@@ -1,0 +1,18 @@
+# A public Python package (Matrix worked example 1)
+standard: project/1.0
+name: fast-invoices
+type: lib.package
+stage: active
+maturity: stable
+packaging: [registry]
+deployment: none
+owner: person:jdoe
+visibility: public
+language: [python]
+support: best-effort
+successor: null
+metadata:
+  description: "Fast, typed invoice generation for Python"
+  website: https://jdoe.github.io/fast-invoices
+  topics: [lib, python, invoicing, pdf-generation]
+links: { docs: ./docs/, tracker: https://github.com/jdoe/fast-invoices/issues }

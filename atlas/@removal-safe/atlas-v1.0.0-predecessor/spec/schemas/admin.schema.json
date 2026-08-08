@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://atlas-standard.dev/schemas/admin/1.0/admin.schema.json",
+  "title": "admin.yaml — ADMIN per-project manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["standard", "profile", "owner", "successor"],
+  "properties": {
+    "standard": { "const": "admin/1.0" },
+    "profile": { "enum": ["solo", "team", "organization"] },
+    "owner": { "type": "string", "pattern": "^(team:[a-z0-9-]+|person:[a-z0-9-]+|community)$" },
+    "successor": {
+      "type": "string",
+      "pattern": "^(team:[a-z0-9-]+|person:[a-z0-9-]+)$",
+      "description": "Succession is mandatory (ADMIN section 7)"
+    },
+    "duties": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "triage":   { "$ref": "#/$defs/holder" },
+        "review":   { "$ref": "#/$defs/holder" },
+        "release":  { "$ref": "#/$defs/holder" },
+        "security": { "$ref": "#/$defs/holder" },
+        "oncall":   { "$ref": "#/$defs/holder" },
+        "renewal":  { "$ref": "#/$defs/holder" }
+      }
+    },
+    "grants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["principal", "role", "scope"],
+        "properties": {
+          "principal": { "type": "string", "pattern": "^(person|agent|service|team):[a-z0-9-]+$" },
+          "role": { "enum": ["observer", "contributor", "maintainer", "admin"] },
+          "scope": { "type": "string" },
+          "expires": { "type": "string", "format": "date" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "holder": { "type": "string", "pattern": "^(person|team|rotation):[a-z0-9-]+$" }
+  }
+}

@@ -1,0 +1,27 @@
+standard: workstream/1.0
+id: '02'
+slug: atlas-platform-release
+title: Rebrand to Atlas and ship a first-class CLI
+summary: Rename the suite to Atlas, package the tooling as an installable library
+  with a discoverable CLI, and raise the documentation site to production quality.
+status: done
+owner: person:maintainer
+opened: '2026-08-07'
+target: '2026-08-07'
+closed: '2026-08-07'
+progress:
+  tasks_total: 9
+  tasks_done: 9
+depends_on:
+- '01'
+blocks: []
+relates_to: []
+agents:
+- id: agent:builder
+  role: orchestrator
+  scope: Package the tooling under src/atlas/, build the CLI, and rebuild the site
+    generator. May not alter normative text in spec/.
+tags:
+- tooling
+- branding
+- developer-experience

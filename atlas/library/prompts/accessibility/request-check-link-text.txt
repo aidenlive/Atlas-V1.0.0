@@ -1,0 +1,1 @@
+List every link in the document below whose text would be meaningless read out of context, and give replacement text that names the destination.

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://atlas-standard.dev/schemas/admin/1.0/org.schema.json",
+  "title": "org.yaml — ADMIN organization manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["standard", "org", "stewards"],
+  "properties": {
+    "standard": { "const": "admin/1.0" },
+    "org": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "stewards": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^person:[a-z0-9-]+$" },
+      "minItems": 2, "maxItems": 5,
+      "description": "R-4: 2-5 named humans; agents never steward"
+    },
+    "teams": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["charter", "lead", "members"],
+        "properties": {
+          "charter": { "type": "string", "minLength": 10 },
+          "lead": { "type": "string", "pattern": "^person:[a-z0-9-]+$" },
+          "members": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^(person|agent|service):[a-z0-9-]+$" },
+            "minItems": 1
+          },
+          "grants": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/grant" }
+          }
+        }
+      }
+    },
+    "policies": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "default_role": { "$ref": "#/$defs/role" },
+        "default_visibility": { "enum": ["public", "internal", "restricted", "private"] },
+        "review_cadence": { "enum": ["monthly", "quarterly", "semiannual"] },
+        "elevation_ttl_max": { "type": "string", "pattern": "^P[0-9]+[DWM]$" },
+        "two_key_acts": { "type": "array", "items": { "type": "string" } },
+        "agent_policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "max_role": { "enum": ["observer", "contributor", "maintainer"],
+              "description": "R-3: agents hold at most maintainer" },
+            "credential_ttl_max": { "type": "string", "pattern": "^P[0-9]+[DWM]$" },
+            "forbidden": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "billing": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "owner": { "type": "string", "pattern": "^person:[a-z0-9-]+$" },
+        "cost_centers": { "type": "object", "additionalProperties": { "type": "string" } }
+      }
+    },
+    "compliance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "frameworks": { "type": "array", "items": { "type": "string" } },
+        "evidence_dir": { "type": "string" }
+      }
+    }
+  },
+  "$defs": {
+    "role": { "enum": ["observer", "contributor", "maintainer", "admin", "owner", "steward"] },
+    "grant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "scope"],
+      "properties": {
+        "role": { "$ref": "#/$defs/role" },
+        "scope": { "type": "string", "pattern": "^(org|team|project|env):[a-z0-9-]+$" },
+        "expires": { "type": "string", "format": "date" }
+      }
+    }
+  }
+}

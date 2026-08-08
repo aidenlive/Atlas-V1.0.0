@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 200" role="img" aria-label="atlas — declared, versioned, machine-checked structure for files, repos, quality, authority, and intent">
+  <rect width="1280" height="200" fill="#ffffff"/>
+  <path d="M0 199.5H1280" stroke="#e4e4e4" stroke-width="1"/>
+  <g fill="none" stroke="#111111" stroke-width="1.90" stroke-linejoin="round" stroke-linecap="round"><path d="M22.0 36.0L12.0 41.0L22.0 46.0L32.0 41.0Z"/><path d="M12.0 46.0L22.0 51.0L32.0 46.0"/><path d="M12.0 51.0L22.0 56.0L32.0 51.0"/></g>
+  <g font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace">
+    <text x="10" y="124" font-size="60" font-weight="500" fill="#111111"
+          letter-spacing="-1.5">atlas</text>
+    <text x="10" y="158" font-size="17" fill="#5e5e5e">declared · versioned · machine-checked structure for digital work</text>
+  </g>
+</svg>

@@ -1,0 +1,67 @@
+# authority.yaml — who may write, review, approve, and retire content here.
+# Roles hold authority; people hold roles. When someone leaves, one line changes.
+# Validated in CI: `atlas validate authority.yaml`.
+standard: editorial/1.0
+
+principals:
+  - id: role:editorial-lead
+    name: Editorial Lead
+    kind: role
+    contact: editorial@example.com
+  - id: role:standards-maintainer
+    name: Standards Maintainer
+    kind: role
+  - id: role:reviewer
+    name: Reviewer
+    kind: role
+  - id: role:contributor
+    name: Contributor
+    kind: role
+  - id: agent:drafting-assistant
+    name: Drafting assistant
+    kind: agent
+    contact: see AGENTS.md
+
+roles:
+  - name: editorial-lead
+    held_by: [role:editorial-lead]
+    may: [draft, edit, review, approve, publish, retire, change-standard]
+    note: "Answers for the standards and for the voice."
+
+  - name: standards-maintainer
+    held_by: [role:standards-maintainer]
+    may: [draft, edit, review, approve, change-standard]
+    note: "May change a rule; may not publish outside spec/."
+
+  - name: reviewer
+    held_by: [role:reviewer]
+    may: [draft, edit, review]
+    note: "Reads and records; does not sign off alone."
+
+  - name: contributor
+    held_by: [role:contributor]
+    may: [draft, edit]
+
+  - name: agent
+    held_by: [agent:drafting-assistant]
+    may: [draft, edit, review]
+    note: "AUTHORITY A-10 — agents draft and check; people accept the risk."
+
+approvals:
+  - change: editorial
+    requires: [role:reviewer]
+    note: "Wording, examples, and formatting inside an existing document."
+  - change: publication
+    requires: [role:editorial-lead]
+    note: "Anything moving to status published."
+  - change: standard
+    requires: [role:editorial-lead, role:standards-maintainer]
+    note: "A rule change travels with its schema, version, and changelog entry (A-05)."
+  - change: retirement
+    requires: [role:editorial-lead]
+
+escalation:
+  - role:editorial-lead
+  - role:standards-maintainer
+
+review_cadence_days: 180

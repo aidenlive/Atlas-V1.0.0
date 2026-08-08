@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="637" height="372" viewBox="0 0 637 372" role="img" aria-label="Terminal output of atlas status">
+  <title>atlas status</title>
+  <rect width="637" height="372" rx="10" fill="#FFFFFF" stroke="#E3DFD7"/>
+  <path d="M0 10a10 10 0 0 1 10-10h617a10 10 0 0 1 10 10v30H0z" fill="#F4F1EA"/>
+  <circle cx="22" cy="20" r="5.5" fill="#E3DFD7"/><circle cx="40" cy="20" r="5.5" fill="#E3DFD7"/><circle cx="58" cy="20" r="5.5" fill="#E3DFD7"/>
+  <text x="318.5" y="25" fill="#6B655A" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" text-anchor="middle">atlas status</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5">
+  <text x="26" y="56" fill="#1B1A17" font-weight="600" xml:space="preserve">atlas  ·  active / stable</text>
+  <text x="26" y="98" fill="#1B1A17" font-weight="400" xml:space="preserve">standard      editorial/1.0</text>
+  <text x="26" y="119" fill="#1B1A17" font-weight="400" xml:space="preserve">kind          standards</text>
+  <text x="26" y="140" fill="#1B1A17" font-weight="400" xml:space="preserve">owner         role:editorial-lead</text>
+  <text x="26" y="161" fill="#1B1A17" font-weight="400" xml:space="preserve">audiences     internal, developers, leadership</text>
+  <text x="26" y="182" fill="#1B1A17" font-weight="400" xml:space="preserve">root          /home/claude/build/atlas</text>
+  <text x="26" y="224" fill="#1B1A17" font-weight="400" xml:space="preserve">standards     8 (69 rules)</text>
+  <text x="26" y="245" fill="#1B1A17" font-weight="400" xml:space="preserve">prompts       56</text>
+  <text x="26" y="266" fill="#1B1A17" font-weight="400" xml:space="preserve">work          2 workstreams, 10/15 tasks done</text>
+  <text x="42" y="308" fill="#1B1A17" font-weight="400" xml:space="preserve">01  Rebuild the editorial system          review    9/10</text>
+  <text x="42" y="329" fill="#1B1A17" font-weight="400" xml:space="preserve">02  Roll the standard out to teams        planned   1/5</text>
+  </g>
+</svg>

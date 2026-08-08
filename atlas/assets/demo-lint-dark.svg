@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1011" height="498" viewBox="0 0 1011 498" role="img" aria-label="Terminal output of atlas lint examples/needs-work.md">
+  <title>atlas lint examples/needs-work.md</title>
+  <rect width="1011" height="498" rx="10" fill="#14130F" stroke="#33302A"/>
+  <path d="M0 10a10 10 0 0 1 10-10h991a10 10 0 0 1 10 10v30H0z" fill="#1D1B17"/>
+  <circle cx="22" cy="20" r="5.5" fill="#33302A"/><circle cx="40" cy="20" r="5.5" fill="#33302A"/><circle cx="58" cy="20" r="5.5" fill="#33302A"/>
+  <text x="505.5" y="25" fill="#8B8477" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" text-anchor="middle">atlas lint examples/needs-work.md</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5">
+  <text x="26" y="56" fill="#E8E3D9" font-weight="600" xml:space="preserve">atlas lint · 1 file</text>
+  <text x="26" y="98" fill="#E2725B" font-weight="600" xml:space="preserve">FAIL  examples/needs-work.md  3 errors, 12 warnings</text>
+  <text x="75" y="119" fill="#D9A066" font-weight="400" xml:space="preserve">-    9  warn   heading looks like Title Case; use sentence case  [LANGUAGE L-04]</text>
+  <text x="75" y="140" fill="#D9A066" font-weight="400" xml:space="preserve">-   11  warn   &#x27;it is important to note that&#x27; — write &#x27;nothing — delete it and state the fact&#x27;  [VOICE V-03]</text>
+  <text x="75" y="161" fill="#D9A066" font-weight="400" xml:space="preserve">-   11  warn   &#x27;very&#x27; — write &#x27;a stronger word, or nothing&#x27;  [VOICE V-03]</text>
+  <text x="75" y="182" fill="#D9A066" font-weight="400" xml:space="preserve">-   11  warn   56-word sentence (limit 34)  [VOICE V-04]</text>
+  <text x="75" y="203" fill="#D9A066" font-weight="400" xml:space="preserve">-   12  warn   &#x27;best-in-class&#x27; — write &#x27;the measurement that makes the claim true&#x27;  [VOICE V-03]</text>
+  <text x="75" y="224" fill="#D9A066" font-weight="400" xml:space="preserve">-   13  warn   &#x27;facilitate&#x27; — write &#x27;help&#x27;  [VOICE V-03]</text>
+  <text x="75" y="245" fill="#D9A066" font-weight="400" xml:space="preserve">-   13  warn   &#x27;in order to&#x27; — write &#x27;to&#x27;  [VOICE V-03]</text>
+  <text x="75" y="266" fill="#D9A066" font-weight="400" xml:space="preserve">-   13  warn   &#x27;cutting-edge&#x27; — write &#x27;what it actually does&#x27;  [VOICE V-03]</text>
+  <text x="75" y="287" fill="#D9A066" font-weight="400" xml:space="preserve">-   13  warn   &#x27;seamless&#x27; — write &#x27;what happens instead of the seam&#x27;  [VOICE V-03]</text>
+  <text x="75" y="308" fill="#E2725B" font-weight="400" xml:space="preserve">-   17  error  heading jumps from H1 to H4  [STRUCTURE S-02]</text>
+  <text x="75" y="329" fill="#E2725B" font-weight="400" xml:space="preserve">-   19  error  link text &#x27;click here&#x27; describes nothing  [STRUCTURE S-07]</text>
+  <text x="75" y="350" fill="#D9A066" font-weight="400" xml:space="preserve">-   19  warn   62-word sentence (limit 34)  [VOICE V-04]</text>
+  <text x="75" y="371" fill="#D9A066" font-weight="400" xml:space="preserve">-   20  warn   &#x27;additional&#x27; — write &#x27;more&#x27;  [VOICE V-03]</text>
+  <text x="75" y="392" fill="#D9A066" font-weight="400" xml:space="preserve">-   21  warn   &#x27;very&#x27; — write &#x27;a stronger word, or nothing&#x27;  [VOICE V-03]</text>
+  <text x="75" y="413" fill="#E2725B" font-weight="400" xml:space="preserve">-   25  error  &#x27;Github&#x27; — the term is &#x27;GitHub&#x27;  [LANGUAGE L-01]</text>
+  <text x="26" y="455" fill="#E2725B" font-weight="600" xml:space="preserve">FAIL  3 errors, 12 warnings across 1 file</text>
+  </g>
+</svg>

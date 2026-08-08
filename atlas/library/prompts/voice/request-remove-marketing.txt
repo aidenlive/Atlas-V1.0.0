@@ -1,0 +1,1 @@
+Strip the unsupported claims and superlatives from the passage below, replacing each with the specific thing that made someone want to make the claim. Where no specific thing exists, cut the sentence and say so.

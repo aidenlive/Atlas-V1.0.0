@@ -1,0 +1,4 @@
+Review the recent agent-authored changes in this repository against AGENTS.md
+and admin.yaml: constraint violations, edits to generated or frozen paths,
+actions above the agent's granted role, and commits missing the required
+conventions. Report violations with evidence.

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 168" role="img" aria-label="{{PROJECT_NAME}} — placeholder banner; replace before going public">
+  <rect width="1280" height="168" fill="#0f0f0f"/>
+  <path d="M0 167.5H1280" stroke="#2a2a2a" stroke-width="1"/>
+  <g fill="none" stroke="#f4f4f4" stroke-width="1.74" stroke-linejoin="round" stroke-linecap="round"><path d="M21.0 27.8L11.8 32.4L21.0 37.0L30.2 32.4Z"/><path d="M11.8 37.0L21.0 41.6L30.2 37.0"/><path d="M11.8 41.6L21.0 46.2L30.2 41.6"/></g>
+  <g font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, Consolas, monospace">
+    <text x="10" y="104" font-size="40" font-weight="500" fill="#f4f4f4"
+          letter-spacing="-1">{{PROJECT_NAME}}</text>
+    <text x="10" y="136" font-size="16" fill="#a8a8a8">One line saying what this is.</text>
+    <text x="1270" y="104" text-anchor="end" font-size="14" fill="#767676"
+          letter-spacing="1.5">REPLACE ME</text>
+  </g>
+</svg>

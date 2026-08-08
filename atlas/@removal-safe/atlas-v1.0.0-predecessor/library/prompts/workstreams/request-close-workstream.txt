@@ -1,0 +1,3 @@
+Close this workstream: confirm every acceptance criterion has recorded evidence,
+set the terminal status and close date, regenerate the index, and archive the
+directory intact. Refuse to close it if any criterion lacks evidence.

@@ -1,0 +1,4 @@
+Apply the fleet visual identity to this repository: inherit the banner geometry
+and palette from the standards repo's assets/, adapt the wordmark, and verify
+the hero renders correctly with meaningful alt text. Do not invent a new brand
+per P-11.

@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+"""Run the CLI from a bare checkout, with no install.
+
+`scripts/atlas check` and `atlas check` do the same thing; this one just puts
+`src/` on the path first.
+"""
+
+import pathlib
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
+
+from atlas.cli import main  # noqa: E402
+
+if __name__ == "__main__":
+    main()

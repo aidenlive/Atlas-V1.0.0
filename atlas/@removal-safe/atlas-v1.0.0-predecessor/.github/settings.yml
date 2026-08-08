@@ -1,0 +1,30 @@
+# .github/settings.yml — forge metadata as code (PRESENTATION P-05).
+# Values mirror project.yaml `metadata:`; CI checks they agree (drift is a defect).
+# Apply with the GitHub "Settings" app (probot/settings) or scripts in your org.
+repository:
+  name: atlas
+  description: "Declared, versioned, machine-checked structure for files, repositories, quality, authority, and intent"
+  homepage: https://github.com/OWNER/atlas
+  topics: content, open-standard, repository-template, governance, ai-agents, developer-experience, project-management, cli
+  is_template: true
+  has_wiki: false          # the wiki fork is an anti-pattern (PROJECT §15)
+  has_projects: false
+  default_branch: main
+  allow_squash_merge: true
+  allow_merge_commit: false
+  allow_rebase_merge: false
+  delete_branch_on_merge: true
+
+branches:
+  - name: main
+    protection:
+      required_pull_request_reviews:
+        required_approving_review_count: 1
+      required_status_checks:
+        strict: true
+        contexts:
+          - "tests + schema validation"
+          - "standard-compliance"
+          - "documentation site builds"
+      enforce_admins: true
+      allow_force_pushes: false

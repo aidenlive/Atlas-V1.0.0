@@ -1,0 +1,1 @@
+Write a handoff note for whoever picks this workstream up next: what is done, what is in flight, what is blocked and on whom, and where the drafts live. Ten lines at most.

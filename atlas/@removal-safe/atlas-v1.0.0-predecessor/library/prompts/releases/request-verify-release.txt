@@ -1,0 +1,4 @@
+Verify the just-published release as a consumer would: install or pull the
+artifact from the registry, run the quickstart against it, and confirm version
+metadata, provenance, and changelog agree. Report any mismatch as a release
+defect.

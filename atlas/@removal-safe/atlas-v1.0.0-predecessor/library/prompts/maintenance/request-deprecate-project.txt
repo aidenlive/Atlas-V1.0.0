@@ -1,0 +1,4 @@
+Execute the deprecation gate for this project: set successor and sunset_date in
+the manifest, banner the README, date the changelog entry, notify consumers via
+their real channels, and publish the migration guide. Silent deprecation is not
+an option.

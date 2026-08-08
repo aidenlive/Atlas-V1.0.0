@@ -1,0 +1,18 @@
+# Repository settings as code, so a change to any of them is reviewable.
+repository:
+  name: "{{NAME}}"
+  description: "{{DESCRIPTION}}"
+  has_issues: true
+  has_wiki: false
+  default_branch: main
+  allow_squash_merge: true
+  delete_branch_on_merge: true
+
+branches:
+  - name: main
+    protection:
+      required_pull_request_reviews:
+        required_approving_review_count: 1
+      required_status_checks:
+        strict: true
+        contexts: [standard]

@@ -1,0 +1,11 @@
+# Media — index for library/media/ (LIBRARY L-A2).
+# Every asset in this directory appears here; every entry here has a file.
+# Checked in both directions by tests/test_library.py.
+
+assets: []
+# Example entry — delete when the first item lands:
+#   - id: architecture-diagram
+#     file: architecture.svg
+#     description: How specifications, schemas, and enforcement fit together
+#     source: scripts/build_assets.py     # L-M1: generated, not drawn
+#     license: null

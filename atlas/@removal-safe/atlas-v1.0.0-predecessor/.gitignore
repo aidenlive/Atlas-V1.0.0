@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+
+# Environment
+.env
+.env.*
+
+# Build output.
+#
+# Every one of these is ANCHORED with a leading slash, and that is load-bearing.
+# A pattern like `site/` with no leading slash matches a directory of that name
+# at ANY depth — which silently excluded `src/atlas/site/`, the site generator
+# package, from version control. The working tree was fine and CI checked out a
+# repository with no `atlas.site` module in it.
+#
+# Anchor build-output patterns. Always.
+/site/
+/dist/
+/build/
+*.egg-info/

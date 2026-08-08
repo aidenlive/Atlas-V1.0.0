@@ -1,0 +1,21 @@
+# Public marketing content. Every claim is reviewable, so approvals are tight.
+standard: editorial/1.0
+name: marketing-site
+kind: marketing
+stage: active
+maturity: stable
+owner: role:brand-lead
+audiences: [customers, partners, press, public]
+channels: [website, blog, social, email]
+languages: [en]
+visibility: public
+support: maintained
+successor: null
+
+metadata:
+  description: "Public website and campaign copy"
+  website: https://example.com
+  topics: [marketing, brand, website, copy]
+
+links:
+  docs: ./docs/

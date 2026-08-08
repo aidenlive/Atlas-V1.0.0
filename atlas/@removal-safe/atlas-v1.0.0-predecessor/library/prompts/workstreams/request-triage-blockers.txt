@@ -1,0 +1,3 @@
+Review every open issue, blocker, and risk across the live workstreams, and
+report those with no owner, no mitigation, or no movement since they were
+raised. An unowned blocker is a wish; name who must act on each.

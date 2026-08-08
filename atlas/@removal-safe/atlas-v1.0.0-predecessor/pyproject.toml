@@ -1,0 +1,82 @@
+# pyproject.toml — packaging for the `atlas` CLI and library.
+#
+# Sanctioned as a root entry by ADR-0007. It is the Python ecosystem's single
+# declaration point for build, dependencies, entry points, and tool config; the
+# alternative is four dotfiles, which is a worse trade than one named file.
+
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "atlas-standard"
+version = "1.0.0"
+description = "Declared, versioned, machine-checked structure for files, repositories, quality, authority, and intent"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Atlas maintainers" }]
+keywords = [
+    "standards", "governance", "repository-template", "developer-experience",
+    "documentation", "ai-agents", "project-management", "compliance",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Documentation",
+    "Typing :: Typed",
+]
+
+# Two runtime dependencies, both load-bearing: one parses the manifests, one
+# validates them. Everything else — rendering, highlighting, the site, the
+# server — is standard library, so the tool starts fast and cannot be broken by
+# an upstream release.
+dependencies = [
+    "PyYAML>=6.0",
+    "jsonschema>=4.21",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/OWNER/atlas"
+Documentation = "https://github.com/OWNER/atlas/tree/main/docs"
+Source = "https://github.com/OWNER/atlas"
+Changelog = "https://github.com/OWNER/atlas/blob/main/CHANGELOG.md"
+Issues = "https://github.com/OWNER/atlas/issues"
+
+[project.scripts]
+atlas = "atlas.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/atlas"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/atlas", "spec", "template", "docs", "README.md", "LICENSE", "CHANGELOG.md"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["E501"]  # line length is enforced by the formatter, not the linter

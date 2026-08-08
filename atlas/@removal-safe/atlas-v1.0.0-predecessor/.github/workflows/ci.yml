@@ -1,0 +1,127 @@
+name: ci
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# Four jobs, deliberately separate: a red build should name which contract
+# broke — the tests, the standard, the docs, or the commit log — without anyone
+# having to open the log to find out.
+jobs:
+  test:
+    name: tests + schema validation
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -e ".[dev]"
+      - run: python -m pytest tests/ -q
+
+  compliance:
+    name: standard-compliance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -e .
+      # The repository is self-hosting: it must pass its own standard.
+      - name: every compliance gate
+        run: atlas check
+      - name: the CLI is installed and discoverable
+        run: |
+          atlas --version
+          atlas --help > /dev/null
+          atlas completion bash > /dev/null
+      - name: dashboard and index are current (W-11)
+        run: atlas work sync --check
+
+  site:
+    name: documentation site builds
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -e .
+      - name: build the site and regenerate the CLI reference
+        run: atlas site build --write-reference
+      # The committed reference is generated from the parser. If regenerating
+      # it changes anything, the two have drifted and the commit is incomplete.
+      - name: committed CLI reference is current
+        run: git diff --exit-code docs/reference/cli.md
+      - uses: actions/upload-artifact@v4
+        with: { name: site, path: site/ }
+
+  commit-lint:
+    name: conventional commits
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: lint commit messages
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=0 origin "${{ github.base_ref }}"
+          bad=0
+          while IFS= read -r msg; do
+            [ -n "$msg" ] || continue
+            grep -qE '^(feat|fix|docs|chore|spec|test|ci|refactor|perf|build)(\(.+\))?!?: .+' <<< "$msg" \
+              || { echo "non-conventional commit: $msg"; bad=1; }
+          done < <(git log --format=%s "origin/${{ github.base_ref }}..HEAD")
+          exit "$bad"
+
+  package:
+    name: built wheel installs and runs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install build
+      - run: python -m build
+
+      # Install the wheel into a clean environment and run it from a directory
+      # that is NOT the source tree. An editable install and a `cd` into the
+      # repository will both import `src/atlas/` off the filesystem, so neither
+      # can tell whether a subpackage was actually packaged and committed.
+      # This job is the one that fails when it was not.
+      - name: install the wheel in a clean environment
+        run: |
+          set -euo pipefail
+          python -m venv /tmp/probe
+          /tmp/probe/bin/pip install --quiet dist/*.whl
+      - name: the installed CLI runs from outside the source tree
+        run: |
+          set -euo pipefail
+          cd /tmp
+          /tmp/probe/bin/atlas --version
+          /tmp/probe/bin/atlas --help > /dev/null
+          /tmp/probe/bin/atlas completion zsh > /dev/null
+      - name: every subpackage survived packaging
+        run: |
+          set -euo pipefail
+          cd /tmp
+          /tmp/probe/bin/python - <<'PY'
+          import importlib, pkgutil
+          import atlas
+          missing = []
+          for module in pkgutil.walk_packages(atlas.__path__, prefix="atlas."):
+              try:
+                  importlib.import_module(module.name)
+              except Exception as error:
+                  missing.append(f"{module.name}: {error}")
+          if missing:
+              raise SystemExit("modules missing from the wheel:\n  " + "\n  ".join(missing))
+          print("all subpackages present")
+          PY
+      - name: the installed CLI operates on a checkout
+        run: /tmp/probe/bin/atlas -C "$GITHUB_WORKSPACE" check

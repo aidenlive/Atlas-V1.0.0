@@ -1,0 +1,4 @@
+Prepare the next release: derive the version bump from Conventional Commits
+since the last tag, finalize the changelog section, and verify the release
+checklist (tests green, docs current, migration notes for anything breaking).
+Stop before tagging and show me the summary.

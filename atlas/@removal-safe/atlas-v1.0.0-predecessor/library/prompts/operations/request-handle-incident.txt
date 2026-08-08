@@ -1,0 +1,3 @@
+Coordinate the active incident per the runbook: assess impact, engage the on-
+call duty holder, execute mitigation, and keep an append-only timeline of
+actions and decisions for the postmortem. Mitigate first; root-cause later.

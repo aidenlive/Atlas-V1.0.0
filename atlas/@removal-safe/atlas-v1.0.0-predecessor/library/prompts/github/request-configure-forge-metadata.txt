@@ -1,0 +1,4 @@
+Set this repository's forge metadata from project.yaml's metadata block —
+description, homepage, and topics per PRESENTATION P-01..P-05 — by updating
+.github/settings.yml, never by hand-editing the forge. Verify manifest and
+settings agree.

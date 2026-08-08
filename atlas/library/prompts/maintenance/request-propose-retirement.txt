@@ -1,0 +1,1 @@
+This document may no longer be true. Propose a plan for retiring or superseding it: what replaces it, what links must move, and what the changelog entry should say. Do not remove anything yet.

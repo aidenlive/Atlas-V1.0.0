@@ -1,0 +1,21 @@
+# A live workstream mid-flight, with an orchestrator and two scoped sub-agents.
+# Validated in CI against spec/schemas/workstream.schema.json.
+standard: workstream/1.0
+id: "07"
+slug: harden-payments-api
+title: Harden the payments API to SLA
+summary: Bring invoice-api from stable to hardened so its SLA claim is honest.
+status: active
+owner: team:payments
+opened: 2026-08-01
+target: 2026-10-15
+closed: null
+progress: { tasks_total: 14, tasks_done: 6 }
+depends_on: ["03"]
+blocks: []
+relates_to: ["04"]
+agents:
+  - { id: person:jsmith, role: orchestrator, scope: whole workstream }
+  - { id: agent:slo-writer, role: sub-agent, scope: "T-04..T-06 — docs/architecture/slo.md only", expires: 2026-10-31 }
+  - { id: agent:load-tester, role: sub-agent, scope: "T-08, T-09 — tests/load/ only; may not touch production config", expires: 2026-10-31 }
+tags: [payments, hardening, sla]

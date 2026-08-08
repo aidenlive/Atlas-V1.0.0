@@ -1,0 +1,3 @@
+Reconcile this workstream with reality: update task statuses and evidence links,
+regenerate the index and dashboard, and correct the manifest status if the
+current one is a stale claim. Never hand-edit generated indexes.

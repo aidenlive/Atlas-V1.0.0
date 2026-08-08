@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+"""Run the Atlas CLI from a checkout, with no install.
+
+`pip install -e .` is better for daily use. This exists for the cases where an
+install is not available or not wanted: CI containers, a fresh clone, a
+pre-commit hook that must not mutate the environment.
+"""
+from __future__ import annotations
+
+import pathlib
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src"))
+
+from atlas.cli import main  # noqa: E402
+
+if __name__ == "__main__":
+    raise SystemExit(main())

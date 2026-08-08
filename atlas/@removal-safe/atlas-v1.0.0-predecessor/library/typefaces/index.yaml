@@ -1,0 +1,12 @@
+# Typefaces — index for library/typefaces/ (LIBRARY L-A2).
+# Every asset in this directory appears here; every entry here has a file.
+# Checked in both directions by tests/test_library.py.
+
+assets: []
+# Example entry — delete when the first family lands:
+#   - id: dm-sans
+#     file: dm-sans/
+#     description: Geometric sans carrying every reading and interface role
+#     source: https://fonts.google.com/specimen/DM+Sans
+#     license: OFL-1.1          # the license file ships in the same directory (L-T1)
+#     fallback: [ui-sans-serif, system-ui, sans-serif]   # L-T3

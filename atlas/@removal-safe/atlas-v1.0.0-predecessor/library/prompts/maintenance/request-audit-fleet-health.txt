@@ -1,0 +1,4 @@
+Survey every project.yaml in the fleet and report: stage and maturity
+distribution, unowned or successor-less projects, expired waivers, stale support
+claims, and repos whose CI is red. Output a ranked list of the ten most urgent
+interventions.

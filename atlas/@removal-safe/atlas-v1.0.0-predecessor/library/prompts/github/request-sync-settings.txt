@@ -1,0 +1,4 @@
+Detect drift between .github/settings.yml, project.yaml metadata, and the live
+forge configuration, and produce the change set that reconciles them with the
+manifests as the source of truth. Never resolve drift by editing the manifest to
+match the console.

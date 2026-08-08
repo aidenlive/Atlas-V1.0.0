@@ -1,0 +1,3 @@
+Inventory every expiring asset this project depends on — domains, certificates,
+licenses, vendor contracts, tokens — with expiry dates and the renewal duty
+holder, and flag anything expiring within 90 days or held by no one.

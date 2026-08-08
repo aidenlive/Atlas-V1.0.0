@@ -1,0 +1,4 @@
+Audit this repository against PRESENTATION items PR-01..PR-06: metadata block
+validity, hero visual with alt text, settings-as-code without drift, derivable
+badges, first-screen comprehension, and the architecture diagram. Report pass or
+fail with the fix for each.

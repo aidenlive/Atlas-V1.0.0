@@ -1,0 +1,26 @@
+# authority.yaml — who may write, review, approve, and retire content here.
+# Roles hold authority; people hold roles. When someone leaves, one line changes.
+standard: editorial/1.0
+
+principals:
+  - id: "{{OWNER}}"
+    name: Owner
+    kind: role
+
+roles:
+  - name: owner
+    held_by: ["{{OWNER}}"]
+    may: [draft, edit, review, approve, publish, retire]
+    note: "Replace with real roles before anything here is published."
+
+approvals:
+  - change: editorial
+    requires: ["{{OWNER}}"]
+  - change: publication
+    requires: ["{{OWNER}}"]
+    note: "AUTHORITY A-04 — the author is never the sole approver. Add a second role."
+
+escalation:
+  - "{{OWNER}}"
+
+review_cadence_days: 180

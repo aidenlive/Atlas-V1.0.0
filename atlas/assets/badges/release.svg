@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="139.0" height="28" role="img" aria-label="release: v1.0.0">
+  <title>release: v1.0.0</title>
+  <rect width="139.0" height="28" rx="6" fill="#FFFFFF"/>
+  <rect x="0.5" y="0.5" width="138.0" height="27" rx="5.5" fill="none" stroke="#E3DFD7"/>
+  <circle cx="14" cy="14" r="4" fill="#8A5A2B"/>
+  <text x="26" y="18" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#1B1A17">release: v1.0.0</text>
+</svg>

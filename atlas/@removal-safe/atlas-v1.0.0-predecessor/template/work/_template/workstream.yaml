@@ -1,0 +1,16 @@
+standard: workstream/1.0
+id: "{{ID}}"
+slug: {{SLUG}}
+title: {{TITLE}}
+summary: "{{SUMMARY}}"       # one or two sentences on what this exists to change
+status: planned          # planned | active | blocked | review | done | cancelled
+owner: {{OWNER}}         # exactly one accountable principal (W-I6)
+opened: {{DATE}}
+target: null
+closed: null
+progress: { tasks_total: 0, tasks_done: 0 }   # derived by atlas work sync
+depends_on: []
+blocks: []
+relates_to: []
+agents: []
+tags: []

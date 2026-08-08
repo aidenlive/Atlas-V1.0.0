@@ -1,0 +1,4 @@
+Find every fact stated in more than one place in this repository (setup steps,
+ownership, versions, conventions), pick the single correct home for each per
+PROJECT.md, and replace all other copies with links. List each consolidation as
+fact → home → former locations.

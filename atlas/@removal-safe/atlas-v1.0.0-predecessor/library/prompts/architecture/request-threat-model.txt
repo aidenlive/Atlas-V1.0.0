@@ -1,0 +1,4 @@
+Write the one-page threat model sketch required by checklist item SEC-06:
+assets, trust boundaries, and top abuse cases for this system, stored in
+docs/architecture/. Keep it honest and short enough that it will actually be
+maintained.

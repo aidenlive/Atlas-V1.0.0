@@ -1,0 +1,3 @@
+Triage the open issues per the declared support policy: label, deduplicate,
+close what is stale or out of scope with a reason, and surface anything that is
+actually a security report or an undeclared breaking change.

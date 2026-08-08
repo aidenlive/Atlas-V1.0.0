@@ -1,0 +1,4 @@
+Open a new workstream for the named initiative: scaffold it with the standard
+skeleton, write the objective, explicit in-and-out scope, and acceptance
+criteria before any task exists. Criteria written after the work are
+recollection, not criteria.

@@ -1,0 +1,18 @@
+standard: project/1.0
+name: {{PROJECT_NAME}}
+type: tool.script          # pick from spec/project-matrix.md D1
+stage: incubating
+maturity: experimental
+packaging: [none]
+deployment: none
+owner: person:changeme     # never "everyone"
+visibility: private
+language: []
+support: none
+successor: null
+metadata:                  # PRESENTATION P-01..P-05; mirror in .github/settings.yml
+  description: "One sentence, <=160 chars, value-first"
+  website: ./docs/
+  topics: [tool, changeme, changeme-domain]
+links:
+  docs: ./docs/

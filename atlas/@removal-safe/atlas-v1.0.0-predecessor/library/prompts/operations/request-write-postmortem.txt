@@ -1,0 +1,4 @@
+Write the blameless postmortem for the named incident: timeline, impact,
+contributing causes, what worked, and specific actioned follow-ups with owners
+and dates. Publish it per HD-08; a postmortem without actioned learnings is
+theater.

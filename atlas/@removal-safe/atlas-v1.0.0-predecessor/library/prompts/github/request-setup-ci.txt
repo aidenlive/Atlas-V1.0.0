@@ -1,0 +1,3 @@
+Create or repair the CI workflow so every PR runs build, tests, lint, the
+standard-compliance job, and commit-lint, with the checks required by branch
+protection. CI must be green on the default branch before you finish.

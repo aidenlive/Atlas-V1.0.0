@@ -1,0 +1,1222 @@
+# tokens.yaml: canonical design tokens for the generated documentation site.
+#
+# Neue 1.0, extracted verbatim from the design system's front matter. This file
+# is the SOURCE, not a copy: atlas site build emits CSS custom properties
+# from it, and the narrative half of the design system lives beside it in
+# DESIGN.md rather than being duplicated here.
+#
+# Consumed groups: ramps (via aliases), colors, typography, spacing, rounded,
+# elevation, motion, breakpoints, sizeClasses, regions, adaptation, overflow,
+# themes.dark. The rest are retained so a re-theme is a ramp swap, not a hunt.
+
+version: 1.0
+name: Neue
+description: >-
+  Neue is a monochrome, editorial system for products that are read as much as
+  they are used: long-form publishing, design-system reference, and the tool
+  surfaces around them. Its material thesis is paper and hairline: flat
+  achromatic surfaces separated by 1px rules rather than shadow, with elevation
+  reserved for things that have genuinely left the page. Its typographic thesis
+  is one voice at two temperaments: a single geometric sans (DM Sans) at weight
+  400/500 only carrying every reading and interface role, and a monospace
+  (JetBrains Mono) marking everything machine-authored: section numbers, token
+  names, code. Color is achromatic by default; chroma appears only where it
+  carries meaning (status, syntax, data series). Its structural thesis is that
+  every layout decision is measured against the space a region was given, never
+  against the device it is running on. All base token values in this file are
+  the LIGHT theme; `themes.dark` overrides by role.
+
+# =============================================================================
+# ramps: extension group. 11-step OKLCH ramps per the org color standard.
+# Shade meanings are fixed: 50 soft bg · 100 subtle fill · 200 interactive bg ·
+# 300 border · 400 muted accent · 500 canonical · 600 hover · 700 active ·
+# 800 high emphasis · 900 strong contrast · 950 maximum depth.
+# Components NEVER reference a ramp. Ramps exist so the semantic layer has a
+# principled source and so a re-theme is a ramp swap, not a hunt.
+# (Named `ramps`, not `palettes`, because `palettes` is a reserved group in the
+# DESIGN.md format with different semantics: see Assumptions.)
+# =============================================================================
+ramps:
+  neutral-0:     "oklch(1 0 0)"
+  neutral-50:    "oklch(0.985 0 0)"
+  neutral-100:   "oklch(0.97 0 0)"
+  neutral-200:   "oklch(0.94 0 0)"
+  neutral-300:   "oklch(0.89 0 0)"
+  neutral-400:   "oklch(0.76 0 0)"
+  neutral-500:   "oklch(0.62 0 0)"
+  neutral-600:   "oklch(0.52 0 0)"
+  neutral-700:   "oklch(0.44 0 0)"
+  neutral-800:   "oklch(0.32 0 0)"
+  neutral-900:   "oklch(0.18 0 0)"
+  neutral-950:   "oklch(0.11 0 0)"
+
+  red-50:        "oklch(0.97 0.014 25)"
+  red-100:       "oklch(0.94 0.030 25)"
+  red-200:       "oklch(0.88 0.060 25)"
+  red-300:       "oklch(0.80 0.100 25)"
+  red-400:       "oklch(0.68 0.160 25)"
+  red-500:       "oklch(0.58 0.200 25)"
+  red-600:       "oklch(0.52 0.200 25)"
+  red-700:       "oklch(0.46 0.180 25)"
+  red-800:       "oklch(0.39 0.150 25)"
+  red-900:       "oklch(0.32 0.120 25)"
+  red-950:       "oklch(0.22 0.080 25)"
+
+  amber-50:      "oklch(0.97 0.020 75)"
+  amber-100:     "oklch(0.95 0.040 75)"
+  amber-200:     "oklch(0.90 0.070 75)"
+  amber-300:     "oklch(0.83 0.100 75)"
+  amber-400:     "oklch(0.72 0.120 75)"
+  amber-500:     "oklch(0.62 0.120 75)"
+  amber-600:     "oklch(0.50 0.110 75)"
+  amber-700:     "oklch(0.44 0.100 75)"
+  amber-800:     "oklch(0.37 0.085 75)"
+  amber-900:     "oklch(0.30 0.070 75)"
+  amber-950:     "oklch(0.21 0.050 75)"
+
+  green-50:      "oklch(0.97 0.018 150)"
+  green-100:     "oklch(0.94 0.036 150)"
+  green-200:     "oklch(0.89 0.065 150)"
+  green-300:     "oklch(0.81 0.095 150)"
+  green-400:     "oklch(0.70 0.125 150)"
+  green-500:     "oklch(0.60 0.135 150)"
+  green-600:     "oklch(0.50 0.130 150)"
+  green-700:     "oklch(0.43 0.115 150)"
+  green-800:     "oklch(0.36 0.095 150)"
+  green-900:     "oklch(0.29 0.075 150)"
+  green-950:     "oklch(0.20 0.055 150)"
+
+  blue-50:       "oklch(0.97 0.018 250)"
+  blue-100:      "oklch(0.94 0.038 250)"
+  blue-200:      "oklch(0.88 0.070 250)"
+  blue-300:      "oklch(0.80 0.110 250)"
+  blue-400:      "oklch(0.68 0.150 250)"
+  blue-500:      "oklch(0.58 0.170 250)"
+  blue-600:      "oklch(0.50 0.160 250)"
+  blue-700:      "oklch(0.44 0.145 250)"
+  blue-800:      "oklch(0.37 0.120 250)"
+  blue-900:      "oklch(0.30 0.095 250)"
+  blue-950:      "oklch(0.21 0.070 250)"
+
+  # Categorical series for data visualisation. Hues are spaced around the wheel
+  # and every entry is tuned to clear 3:1 against both page surfaces in both
+  # themes, so a series color is legible as a 2px line, not only as a fill.
+  indigo-50: oklch(0.97 0.017 275)
+  indigo-100: oklch(0.94 0.037 275)
+  indigo-200: oklch(0.88 0.068 275)
+  indigo-300: oklch(0.80 0.107 275)
+  indigo-400: oklch(0.68 0.146 275)
+  indigo-500: oklch(0.58 0.165 275)
+  indigo-600: oklch(0.50 0.155 275)
+  indigo-700: oklch(0.44 0.141 275)
+  indigo-800: oklch(0.37 0.116 275)
+  indigo-900: oklch(0.30 0.092 275)
+  indigo-950: oklch(0.21 0.068 275)
+  violet-50: oklch(0.97 0.018 300)
+  violet-100: oklch(0.94 0.038 300)
+  violet-200: oklch(0.88 0.070 300)
+  violet-300: oklch(0.80 0.110 300)
+  violet-400: oklch(0.68 0.150 300)
+  violet-500: oklch(0.58 0.170 300)
+  violet-600: oklch(0.50 0.160 300)
+  violet-700: oklch(0.44 0.145 300)
+  violet-800: oklch(0.37 0.120 300)
+  violet-900: oklch(0.30 0.095 300)
+  violet-950: oklch(0.21 0.070 300)
+  teal-50: oklch(0.97 0.012 185)
+  teal-100: oklch(0.94 0.025 185)
+  teal-200: oklch(0.88 0.045 185)
+  teal-300: oklch(0.80 0.071 185)
+  teal-400: oklch(0.68 0.097 185)
+  teal-500: oklch(0.58 0.110 185)
+  teal-600: oklch(0.50 0.104 185)
+  teal-700: oklch(0.44 0.094 185)
+  teal-800: oklch(0.37 0.078 185)
+  teal-900: oklch(0.30 0.061 185)
+  teal-950: oklch(0.21 0.045 185)
+  cyan-50: oklch(0.97 0.014 215)
+  cyan-100: oklch(0.94 0.029 215)
+  cyan-200: oklch(0.88 0.054 215)
+  cyan-300: oklch(0.80 0.084 215)
+  cyan-400: oklch(0.68 0.115 215)
+  cyan-500: oklch(0.58 0.130 215)
+  cyan-600: oklch(0.50 0.122 215)
+  cyan-700: oklch(0.44 0.111 215)
+  cyan-800: oklch(0.37 0.092 215)
+  cyan-900: oklch(0.30 0.073 215)
+  cyan-950: oklch(0.21 0.054 215)
+  orange-50: oklch(0.97 0.016 50)
+  orange-100: oklch(0.94 0.035 50)
+  orange-200: oklch(0.88 0.064 50)
+  orange-300: oklch(0.80 0.100 50)
+  orange-400: oklch(0.68 0.137 50)
+  orange-500: oklch(0.58 0.155 50)
+  orange-600: oklch(0.50 0.146 50)
+  orange-700: oklch(0.44 0.132 50)
+  orange-800: oklch(0.37 0.109 50)
+  orange-900: oklch(0.30 0.087 50)
+  orange-950: oklch(0.21 0.064 50)
+  pink-50: oklch(0.97 0.017 350)
+  pink-100: oklch(0.94 0.037 350)
+  pink-200: oklch(0.88 0.068 350)
+  pink-300: oklch(0.80 0.107 350)
+  pink-400: oklch(0.68 0.146 350)
+  pink-500: oklch(0.58 0.165 350)
+  pink-600: oklch(0.50 0.155 350)
+  pink-700: oklch(0.44 0.141 350)
+  pink-800: oklch(0.37 0.116 350)
+  pink-900: oklch(0.30 0.092 350)
+  pink-950: oklch(0.21 0.068 350)
+  viz-1:         "oklch(0.55 0.160 250)"
+  viz-2:         "oklch(0.58 0.145 150)"
+  viz-3:         "oklch(0.58 0.180 25)"
+  viz-4:         "oklch(0.60 0.125 75)"
+  viz-5:         "oklch(0.55 0.170 305)"
+  viz-6:         "oklch(0.60 0.110 195)"
+  viz-7:         "oklch(0.52 0.140 335)"
+  viz-8:         "oklch(0.62 0.130 115)"
+
+colors:
+  # ---- brand / action ------------------------------------------------------
+  primary:            "oklch(0.18 0 0)"      # near-black; the single action color
+  primary-hover:      "oklch(0.28 0 0)"
+  primary-active:     "oklch(0.12 0 0)"
+  on-primary:         "oklch(0.98 0 0)"
+
+  # ---- surfaces (ordinal, not semantic-depth) ------------------------------
+  background:         "oklch(0.965 0 0)"     # page field
+  surface:            "oklch(1 0 0)"         # cards, nav islands, inputs, menus
+  surface-2:          "oklch(0.98 0 0)"      # recessed wells, code, table zebra
+  surface-3:          "oklch(0.95 0 0)"      # tracks, disabled fills, skeletons
+
+  # ---- ink -----------------------------------------------------------------
+  on-surface:         "oklch(0.18 0 0)"      # primary text
+  on-surface-2:       "oklch(0.38 0 0)"      # secondary text, deks
+  on-surface-3:       "oklch(0.52 0 0)"      # muted labels, captions, placeholders
+  on-background:      "{colors.on-surface}"
+
+  # ---- lines ---------------------------------------------------------------
+  outline:            "oklch(0.92 0 0)"      # decorative hairline (non-essential)
+  outline-soft:       "oklch(0.95 0 0)"      # internal dividers
+  outline-strong:     "oklch(0.62 0 0)"      # boundary of an interactive control (>=3:1)
+
+  # ---- focus + scrims ------------------------------------------------------
+  focus:              "{colors.primary}"     # focus indicator color
+  focus-offset:       "{colors.surface}"     # gap color between control and ring
+  focus-halo:         "oklch(0.18 0 0 / 0.16)"   # forced-colors fallback only
+  scrim:              "oklch(0.18 0 0 / 0.05)"   # hover wash on ghost controls
+  scrim-strong:       "oklch(0.18 0 0 / 0.09)"   # active wash
+  overlay:            "oklch(0.14 0 0 / 0.44)"   # modal / drawer / sheet backdrop
+  fade:               "oklch(1 0 0 / 0)"         # transparent end of a scroll-edge fade
+
+  # ---- status (text- and icon-safe on surface..surface-3) ------------------
+  error:              "oklch(0.52 0.20 25)"
+  success:            "oklch(0.50 0.13 150)"
+  warning:            "oklch(0.50 0.11 75)"
+  info:               "oklch(0.50 0.16 250)"
+  error-surface:      "oklch(0.96 0.02 25)"
+  success-surface:    "oklch(0.96 0.02 150)"
+  warning-surface:    "oklch(0.96 0.03 75)"
+  info-surface:       "oklch(0.96 0.02 250)"
+
+  # ---- code / syntax (all >=4.5:1 on `code-surface`) -----------------------
+  # --- content accents -------------------------------------------------------
+  # One hue per DOMAIN of content, not per component. The same accent marks a
+  # standard in the sidebar, on its page eyebrow, in its badge, and on its tag,
+  # so a reader learns the mapping once and it holds everywhere.
+  #
+  # Chroma stays out of structure. These never tint a surface, a rule, or a
+  # navigation rail; they colour a 2px marker, a glyph, or text on a tinted
+  # chip. The interface remains achromatic and the accent remains information.
+  accent-spec: "{ramps.indigo-600}"
+  accent-spec-soft: "{ramps.indigo-50}"
+  accent-spec-line: "{ramps.indigo-200}"
+  accent-work: "{ramps.blue-600}"
+  accent-work-soft: "{ramps.blue-50}"
+  accent-work-line: "{ramps.blue-200}"
+  accent-docs: "{ramps.teal-600}"
+  accent-docs-soft: "{ramps.teal-50}"
+  accent-docs-line: "{ramps.teal-200}"
+  accent-library: "{ramps.amber-700}"
+  accent-library-soft: "{ramps.amber-50}"
+  accent-library-line: "{ramps.amber-200}"
+  accent-cli: "{ramps.violet-600}"
+  accent-cli-soft: "{ramps.violet-50}"
+  accent-cli-line: "{ramps.violet-200}"
+  # --- tags ------------------------------------------------------------------
+  # A tag is a chip: soft tinted ground, saturated text, hairline of the same
+  # hue. Never a solid fill, which would compete with a status pill.
+  tag-ink: "{colors.on-surface-2}"
+  tag-surface: "{colors.surface-2}"
+  tag-line: "{colors.outline}"
+  code-surface:       "{colors.surface-2}"
+  code-gutter:        "oklch(0.52 0 0)"
+  code-plain:         "oklch(0.28 0 0)"
+  code-comment:       "oklch(0.52 0 0)"
+  code-keyword:       "oklch(0.45 0.19 300)"
+  code-string:        "oklch(0.45 0.13 150)"
+  code-number:        "oklch(0.48 0.15 45)"
+  code-function:      "oklch(0.45 0.17 255)"
+  code-attr:          "oklch(0.48 0.14 80)"
+  code-tag:           "oklch(0.48 0.19 20)"
+  code-punctuation:   "oklch(0.55 0 0)"
+  code-added:         "oklch(0.48 0.14 150)"
+  code-removed:       "oklch(0.52 0.20 25)"
+  code-highlight:     "oklch(0.18 0 0 / 0.06)"
+
+  # ---- data visualisation --------------------------------------------------
+  # Series roles. Charts read these, never `ramps.viz-*` directly, so a product
+  # can re-map the series order without touching a chart config.
+  series-1:           "{ramps.viz-1}"
+  series-2:           "{ramps.viz-2}"
+  series-3:           "{ramps.viz-3}"
+  series-4:           "{ramps.viz-4}"
+  series-5:           "{ramps.viz-5}"
+  series-6:           "{ramps.viz-6}"
+  series-7:           "{ramps.viz-7}"
+  series-8:           "{ramps.viz-8}"
+  chart-grid:         "oklch(0.92 0 0)"      # gridlines: decorative, not a boundary
+  chart-axis:         "oklch(0.62 0 0)"      # axis rule and ticks (>=3:1)
+  chart-label:        "oklch(0.52 0 0)"      # axis labels (>=4.5:1)
+  chart-track:        "oklch(0.94 0 0)"      # the unfilled part of a bar or gauge
+  chart-tooltip:      "oklch(0.18 0 0)"      # tooltip surface (inverted)
+  on-chart-tooltip:   "oklch(0.98 0 0)"
+
+  # ---- org standard aliases ------------------------------------------------
+  # The org color standard names surfaces and text differently from this
+  # system. Both vocabularies point at the same values; neither is a second
+  # source of truth. Neue components use the names above; org tooling uses these.
+  border:             "{colors.outline}"
+  text:               "{colors.on-surface}"
+  text-secondary:     "{colors.on-surface-2}"
+  text-muted:         "{colors.on-surface-3}"
+
+typography:
+  headline-display:
+    fontFamily: "DM Sans"
+    fontSize: "56px"          # fluid: clamp(36px, 8vw, 56px): ceiling recorded
+    fontWeight: 500
+    lineHeight: 1.05
+    letterSpacing: "-0.025em"
+  headline-lg:
+    fontFamily: "DM Sans"
+    fontSize: "44px"          # fluid: clamp(32px, 6vw, 44px)
+    fontWeight: 500
+    lineHeight: 1.1
+    letterSpacing: "-0.025em"
+  headline-md:
+    fontFamily: "DM Sans"
+    fontSize: "32px"          # fluid: clamp(26px, 4vw, 32px)
+    fontWeight: 500
+    lineHeight: 1.15
+    letterSpacing: "-0.015em"
+  headline-sm:
+    fontFamily: "DM Sans"
+    fontSize: "22px"
+    fontWeight: 500
+    lineHeight: 1.25
+    letterSpacing: "-0.015em"
+  headline-xs:
+    fontFamily: "DM Sans"
+    fontSize: "18px"
+    fontWeight: 500
+    lineHeight: 1.3
+    letterSpacing: "-0.015em"
+  body-lg:
+    fontFamily: "DM Sans"
+    fontSize: "18px"
+    fontWeight: 400
+    lineHeight: 1.55
+    letterSpacing: "-0.015em"
+  body-md:
+    fontFamily: "DM Sans"
+    fontSize: "17px"
+    fontWeight: 400
+    lineHeight: 1.7
+    letterSpacing: "0em"
+  body-sm:
+    fontFamily: "DM Sans"
+    fontSize: "15px"
+    fontWeight: 400
+    lineHeight: 1.55
+    letterSpacing: "0em"
+  body-xs:
+    fontFamily: "DM Sans"
+    fontSize: "14px"
+    fontWeight: 400
+    lineHeight: 1.5
+    letterSpacing: "0em"
+  label-lg:
+    fontFamily: "DM Sans"
+    fontSize: "15px"
+    fontWeight: 500
+    lineHeight: 1.2
+    letterSpacing: "0em"
+  label-md:
+    fontFamily: "DM Sans"
+    fontSize: "14px"
+    fontWeight: 500
+    lineHeight: 1.2
+    letterSpacing: "0em"
+  label-sm:
+    fontFamily: "DM Sans"
+    fontSize: "13px"
+    fontWeight: 500
+    lineHeight: 1.2
+    letterSpacing: "0em"
+  caption-md:
+    fontFamily: "DM Sans"
+    fontSize: "12px"
+    fontWeight: 500
+    lineHeight: 1.4
+    letterSpacing: "0.06em"
+  mono-md:
+    fontFamily: "JetBrains Mono"
+    fontSize: "13px"
+    fontWeight: 400
+    lineHeight: 1.65
+    letterSpacing: "0em"
+  mono-sm:
+    fontFamily: "JetBrains Mono"
+    fontSize: "12px"
+    fontWeight: 500
+    lineHeight: 1.4
+    letterSpacing: "0.06em"
+  mono-xs:
+    fontFamily: "JetBrains Mono"
+    fontSize: "11px"
+    fontWeight: 500
+    lineHeight: 1.4
+    letterSpacing: "0.06em"
+
+spacing:
+  # ---- 4px rhythm scale (ordinal, non-linear above s-6) --------------------
+  s-1:  "4px"
+  s-2:  "8px"
+  s-3:  "12px"
+  s-4:  "16px"
+  s-5:  "20px"
+  s-6:  "24px"
+  s-7:  "32px"
+  s-8:  "40px"
+  s-9:  "48px"
+  s-10: "64px"
+  s-11: "80px"
+  s-12: "112px"
+
+  # ---- page metrics --------------------------------------------------------
+  gutter:           "{spacing.s-4}"   # page inline padding, base
+  gutter-md:        "{spacing.s-6}"   # page inline padding, >= sm
+  gutter-lg:        "{spacing.s-7}"   # page inline padding, >= lg
+
+  # ---- containers ----------------------------------------------------------
+  content:          "780px"    # reading column: prose, forms, single-column demos
+  wide:             "1120px"   # break-out: galleries, wide tables, image rows
+  rail:             "248px"    # BOTH shell rails: one token, so they cannot drift
+  rail-min:         "148px"    # rail floor before the third track is withdrawn
+  shell:            "1468px"   # derived: content + 2*rail + 2*s-10 + 2*gutter-lg
+  surface-max:      "1280px"   # working-surface cap in an app shell
+  surface-max-wide: "1600px"   # dashboards, galleries, boards
+  region-min:       "280px"    # a docked region below this width is withdrawn
+
+  # ---- reading measures (follow the font, not the screen) ------------------
+  measure-narrow:   "44ch"     # leads, empty states, callout bodies
+  measure:          "72ch"     # hard cap on prose line length
+  measure-wide:     "88ch"     # tables, code, log output
+
+  # ---- chrome --------------------------------------------------------------
+  nav-top:          "12px"     # float gap from the top of the viewport
+  nav-h:            "56px"     # navigation island height
+  nav-stack:        "80px"     # derived: nav-top + nav-h + nav-top
+  scroll-offset:    "112px"    # derived: nav-stack + s-7. Anchor offset AND rail pin.
+
+  # ---- control metrics -----------------------------------------------------
+  control-h-sm:     "36px"
+  control-h:        "44px"     # default button height
+  control-h-lg:     "52px"
+  field-h:          "48px"     # text input height
+  hairline:         "1px"      # the only rule weight in the system
+
+  # ---- pointer targets (read the pointer, not the platform) ----------------
+  target-fine:      "28px"     # mouse, trackpad, stylus: dense pointer-only surfaces
+  target-coarse:    "44px"     # finger: the system-wide default floor
+  target-remote:    "56px"     # directional pad
+
+  # ---- icon sizes ----------------------------------------------------------
+  icon-xs:          "16px"     # button-sm, pills, inline chips
+  icon-sm:          "18px"     # callouts, list rows
+  icon-md:          "20px"     # default button, form controls
+  icon-lg:          "22px"     # navigation islands
+  icon-xl:          "24px"     # standalone, toolbar
+  icon-2xl:         "32px"     # empty states
+
+rounded:
+  none: "0px"
+  xs:   "6px"
+  sm:   "10px"
+  md:   "16px"
+  lg:   "24px"
+  xl:   "32px"
+  pill: "999px"
+  full: "50%"
+
+elevation:
+  # Extension group. Each key is an elevation TIER; `components.*.shadow` names a
+  # tier, never a raw shadow. Tiers are documented in "Elevation & Depth".
+  flat:    "none"
+  raised:  "0 1px 2px oklch(0.18 0 0 / 0.04), 0 2px 8px oklch(0.18 0 0 / 0.04)"
+  float:   "0 2px 6px oklch(0.18 0 0 / 0.05), 0 12px 28px oklch(0.18 0 0 / 0.07)"
+  popover: "0 4px 10px oklch(0.18 0 0 / 0.06), 0 18px 42px oklch(0.18 0 0 / 0.10)"
+  modal:   "0 8px 20px oklch(0.18 0 0 / 0.08), 0 36px 72px oklch(0.18 0 0 / 0.16)"
+
+motion:
+  ease:             "cubic-bezier(0.22, 1, 0.36, 1)"
+  ease-out:         "cubic-bezier(0.16, 1, 0.3, 1)"
+  ease-in-out:      "cubic-bezier(0.65, 0, 0.35, 1)"
+  ease-spring:      "cubic-bezier(0.34, 1.4, 0.64, 1)"
+  duration-instant: "90ms"
+  duration-fast:    "180ms"
+  duration-normal:  "280ms"
+  duration-slow:    "520ms"
+  duration-theme:   "280ms"
+  stagger-step:     "60ms"
+
+breakpoints:
+  # VIEWPORT thresholds. Govern presentation: fluid type ceilings, page gutters,
+  # gallery column counts, page-level chrome. Never used for region structure.
+  xs:   "480px"
+  sm:   "560px"
+  md:   "768px"
+  lg:   "1024px"
+  xl:   "1280px"
+  "2xl": "1536px"
+
+sizeClasses:
+  # CONTAINER thresholds, resolved from the width of the region itself.
+  # Govern structure: how many panes, where navigation lives, whether a docked
+  # region survives. Never used for type or page gutters. See "The two axes".
+  compact:   "0px"
+  medium:    "600px"
+  expanded:  "905px"
+  large:     "1280px"
+  xlarge:    "1920px"
+
+grid:
+  # Fluid column grid, stepped by size class. Extension group.
+  columns:
+    compact: 4
+    medium: 8
+    expanded: 12
+    large: 12
+    xlarge: 12
+  gutter:
+    compact: "{spacing.s-4}"
+    medium: "{spacing.s-5}"
+    expanded: "{spacing.s-6}"
+    large: "{spacing.s-6}"
+    xlarge: "{spacing.s-7}"
+  margin:
+    compact: "{spacing.s-4}"
+    medium: "{spacing.s-6}"
+    expanded: "{spacing.s-7}"
+    large: "{spacing.s-8}"
+    xlarge: "{spacing.s-10}"
+
+regions:
+  # The seven named regions any shell is assembled from. Extension group.
+  # `priority` resolves contention: when docked widths exceed the space
+  # available, regions release in ascending priority order.
+  banner:
+    role: banner
+    edge: top
+    height: "{spacing.s-8}"
+    priority: 10
+  navigation:
+    role: navigation
+    edge:
+      compact: bottom
+      medium: start
+      expanded: start
+      large: start
+      xlarge: start
+    height:
+      compact: "{spacing.nav-h}"
+    width:
+      medium: "80px"
+      expanded: "80px"
+      large: "80px"
+      xlarge: "280px"
+    min: "80px"
+    max: "280px"
+    priority: 90
+  toolbar:
+    role: toolbar
+    edge: top
+    height: "{spacing.s-10}"
+    priority: 80
+  content:
+    role: main
+    edge: fill
+    min: "{spacing.region-min}"
+    max: "{spacing.surface-max}"
+    priority: 100
+  panel:
+    role: complementary
+    edge: start
+    width: "320px"
+    min: "240px"
+    max: "480px"
+    priority: 60
+  inspector:
+    role: complementary
+    edge: end
+    width: "320px"
+    min: "260px"
+    max: "440px"
+    priority: 40
+  footer:
+    role: contentinfo
+    edge: bottom
+    min: "{spacing.s-10}"
+    priority: 20
+
+adaptation:
+  # The normative adaptation policy: data, not branching code, so it can be
+  # inspected, diffed and proved equal across platforms. Values are rungs on the
+  # ladder `docked -> inline -> overlay -> sheet -> hidden`, which only ever
+  # runs one way as space shrinks.
+  banner:
+    compact: hidden
+    medium: docked
+    expanded: docked
+    large: docked
+    xlarge: docked
+  navigation:
+    compact: docked
+    medium: docked
+    expanded: docked
+    large: docked
+    xlarge: docked
+  toolbar:
+    compact: docked
+    medium: docked
+    expanded: docked
+    large: docked
+    xlarge: docked
+  content:
+    compact: docked
+    medium: docked
+    expanded: docked
+    large: docked
+    xlarge: docked
+  panel:
+    compact: sheet
+    medium: overlay
+    expanded: docked
+    large: docked
+    xlarge: docked
+  inspector:
+    compact: sheet
+    medium: sheet
+    expanded: overlay
+    large: docked
+    xlarge: docked
+  footer:
+    compact: docked
+    medium: docked
+    expanded: docked
+    large: docked
+    xlarge: docked
+
+overflow:
+  # Declared per region, never decided at render time.
+  banner: collapse
+  navigation: collapse
+  toolbar: collapse
+  content: scroll
+  panel: scroll
+  inspector: scroll
+  footer: wrap
+
+shells:
+  # Named region sets. A shell is declared with one attribute; it is not new CSS.
+  app:     [navigation, toolbar, content, inspector, footer]
+  browse:  [navigation, panel, toolbar, content, footer]
+  canvas:  [navigation, toolbar, content, panel, inspector]
+  reading: [toolbar, content, inspector]
+  site:    [banner, toolbar, content, footer]
+  focus:   [content, panel]
+
+primitives:
+  # Layout primitives. They arrange their children and nothing else: no color,
+  # no type, no self-positioning. Every knob is a custom property.
+  container: { arranges: "one child, centered, with gutters",              knobs: [max, gutter] }
+  stack:     { arranges: "children vertically",                            knobs: [gap, align] }
+  row:       { arranges: "children horizontally, wrapping",                knobs: [gap, align, justify] }
+  grid:      { arranges: "equal cells, count derived from a cell minimum", knobs: [min, gap] }
+  columns:   { arranges: "cells on the fluid grid",                        knobs: [gap, span] }
+  split:     { arranges: "aside plus content, stacking intrinsically",     knobs: [aside, threshold] }
+  switcher:  { arranges: "equal peers, all across or all stacked",         knobs: [threshold] }
+  frame:     { arranges: "one child, aspect-ratio crop",                   knobs: [ratio, fit] }
+  center:    { arranges: "one child at a measure",                         knobs: [measure] }
+  cover:     { arranges: "a principal child, filling",                     knobs: [minHeight] }
+  scroller:  { arranges: "peers on one axis, with snap",                   knobs: [item, gap] }
+  sticky:    { arranges: "one child, pinned",                              knobs: [top] }
+
+density:
+  # Multiplier on the spacing scale and control heights. Never on type size;
+  # never below a pointer target floor. Results snap to 2px.
+  compact:      0.875
+  comfortable:  1
+  spacious:     1.125
+
+environment:
+  safeArea: respect      # added to the page margin, never replacing it
+  overscan: 0.045        # reserved per edge where no safe area is reported (TV)
+  hinge: "32px"          # gutter reserved across a book-posture fold
+
+themes:
+  light:
+    color-scheme: "light"      # base token values above already are the light theme
+  dark:
+    accent-spec: "{ramps.indigo-400}"
+    accent-spec-soft: oklch(0.26 0.055 275)
+    accent-spec-line: oklch(0.36 0.080 275)
+    accent-work: "{ramps.blue-400}"
+    accent-work-soft: oklch(0.26 0.055 250)
+    accent-work-line: oklch(0.36 0.080 250)
+    accent-docs: "{ramps.teal-400}"
+    accent-docs-soft: oklch(0.25 0.040 185)
+    accent-docs-line: oklch(0.35 0.055 185)
+    accent-library: "{ramps.amber-400}"
+    accent-library-soft: oklch(0.26 0.045 75)
+    accent-library-line: oklch(0.36 0.060 75)
+    accent-cli: "{ramps.violet-400}"
+    accent-cli-soft: oklch(0.26 0.055 300)
+    accent-cli-line: oklch(0.36 0.080 300)
+    tag-ink: oklch(0.72 0 0)
+    tag-surface: oklch(0.20 0 0)
+    tag-line: oklch(0.30 0 0)
+    color-scheme: "dark"
+    primary:            "oklch(0.97 0 0)"
+    primary-hover:      "oklch(0.90 0 0)"
+    primary-active:     "oklch(1 0 0)"
+    on-primary:         "oklch(0.17 0 0)"
+    background:         "oklch(0.14 0 0)"
+    surface:            "oklch(0.18 0 0)"
+    surface-2:          "oklch(0.21 0 0)"
+    surface-3:          "oklch(0.24 0 0)"
+    on-surface:         "oklch(0.97 0 0)"
+    on-surface-2:       "oklch(0.80 0 0)"
+    on-surface-3:       "oklch(0.68 0 0)"
+    outline:            "oklch(0.28 0 0)"
+    outline-soft:       "oklch(0.24 0 0)"
+    outline-strong:     "oklch(0.54 0 0)"
+    focus-halo:         "oklch(0.97 0 0 / 0.20)"
+    scrim:              "oklch(1 0 0 / 0.07)"
+    scrim-strong:       "oklch(1 0 0 / 0.12)"
+    overlay:            "oklch(0.08 0 0 / 0.64)"
+    fade:               "oklch(0.18 0 0 / 0)"
+    error:              "oklch(0.72 0.17 25)"
+    success:            "oklch(0.78 0.16 150)"
+    warning:            "oklch(0.83 0.13 75)"
+    info:               "oklch(0.76 0.13 250)"
+    error-surface:      "oklch(0.26 0.06 25)"
+    success-surface:    "oklch(0.26 0.05 150)"
+    warning-surface:    "oklch(0.26 0.05 75)"
+    info-surface:       "oklch(0.26 0.05 250)"
+    code-surface:       "oklch(0.16 0 0)"
+    code-gutter:        "oklch(0.60 0 0)"
+    code-plain:         "oklch(0.90 0 0)"
+    code-comment:       "oklch(0.65 0 0)"
+    code-keyword:       "oklch(0.78 0.14 300)"
+    code-string:        "oklch(0.82 0.15 150)"
+    code-number:        "oklch(0.83 0.13 60)"
+    code-function:      "oklch(0.80 0.13 255)"
+    code-attr:          "oklch(0.86 0.14 90)"
+    code-tag:           "oklch(0.76 0.15 20)"
+    code-punctuation:   "oklch(0.70 0 0)"
+    code-added:         "oklch(0.80 0.15 150)"
+    code-removed:       "oklch(0.75 0.16 25)"
+    code-highlight:     "oklch(1 0 0 / 0.07)"
+    # Data visualisation: chrome inverts; the series ramps do not, because a hue
+    # that reads on both page surfaces reads on both themes.
+    chart-grid:         "oklch(0.28 0 0)"
+    chart-axis:         "oklch(0.54 0 0)"
+    chart-label:        "oklch(0.72 0 0)"
+    chart-track:        "oklch(0.26 0 0)"
+    chart-tooltip:      "oklch(0.95 0 0)"
+    on-chart-tooltip:   "oklch(0.18 0 0)"
+    # Elevation is re-tuned for dark: a light-theme shadow over a dark surface
+    # reads as haze, so the tiers tighten and borders carry more of the load.
+    elevation-raised:   "0 1px 2px oklch(0 0 0 / 0.30)"
+    elevation-float:    "0 4px 14px oklch(0 0 0 / 0.44)"
+    elevation-popover:  "0 8px 24px oklch(0 0 0 / 0.52)"
+    elevation-modal:    "0 24px 64px oklch(0 0 0 / 0.64)"
+
+components:
+  # ---- buttons -------------------------------------------------------------
+  button:
+    height: "{spacing.control-h}"
+    padding: "0 {spacing.s-5}"
+    rounded: "{rounded.pill}"
+    typography: "{typography.label-lg}"
+    gap: "{spacing.s-2}"
+    borderWidth: "{spacing.hairline}"
+    borderColor: "transparent"
+    shadow: "flat"
+  button-primary:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
+  button-primary-hover:
+    backgroundColor: "{colors.primary-hover}"
+  button-primary-active: {}                     # transform-only: scale(0.97)
+  button-primary-disabled:
+    backgroundColor: "{colors.surface-3}"
+    textColor: "{colors.on-surface-3}"
+  button-secondary:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.on-surface}"
+    borderColor: "{colors.outline-strong}"
+  button-secondary-hover:
+    backgroundColor: "{colors.surface-2}"
+    borderColor: "{colors.primary}"
+  button-ghost:
+    backgroundColor: "transparent"
+    textColor: "{colors.on-surface}"
+  button-ghost-hover:
+    backgroundColor: "{colors.scrim}"
+  button-danger:
+    backgroundColor: "{colors.error}"
+    textColor: "oklch(1 0 0)"
+  button-icon:
+    width: "{spacing.control-h}"
+    height: "{spacing.control-h}"
+    padding: "0px"
+    rounded: "{rounded.pill}"
+    backgroundColor: "{colors.surface}"
+    borderColor: "{colors.outline-strong}"
+    textColor: "{colors.on-surface}"
+  button-icon-sm:
+    width: "{spacing.control-h-sm}"
+    height: "{spacing.control-h-sm}"
+  button-sm:
+    height: "{spacing.control-h-sm}"
+    padding: "0 {spacing.s-4}"
+    typography: "{typography.label-md}"
+  button-lg:
+    height: "{spacing.control-h-lg}"
+    padding: "0 {spacing.s-6}"
+
+  # ---- navigation ----------------------------------------------------------
+  nav-island:
+    height: "{spacing.nav-h}"
+    backgroundColor: "{colors.surface}"
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+    rounded: "{rounded.pill}"
+    padding: "{spacing.s-2}"
+    gap: "{spacing.s-1}"
+    shadow: "float"
+  nav-island-scrolled:
+    shadow: "popover"
+  nav-link:
+    height: "{spacing.control-h-sm}"
+    padding: "0 {spacing.s-4}"
+    rounded: "{rounded.pill}"
+    typography: "{typography.label-sm}"
+    textColor: "{colors.on-surface-2}"
+  nav-link-hover:
+    backgroundColor: "{colors.scrim}"
+    textColor: "{colors.on-surface}"
+  nav-link-current:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
+  sidebar-link:
+    height: "{spacing.control-h-sm}"
+    padding: "0 {spacing.s-3}"
+    rounded: "{rounded.sm}"
+    typography: "{typography.body-xs}"
+    textColor: "{colors.on-surface-2}"
+  sidebar-link-current:
+    backgroundColor: "{colors.surface-3}"
+    textColor: "{colors.on-surface}"
+  sidebar-group-label:
+    typography: "{typography.mono-xs}"
+    textColor: "{colors.on-surface-3}"
+    padding: "{spacing.s-4} {spacing.s-3} {spacing.s-2}"
+  breadcrumb:
+    typography: "{typography.body-xs}"
+    textColor: "{colors.on-surface-3}"
+    gap: "{spacing.s-2}"
+  breadcrumb-current:
+    textColor: "{colors.on-surface}"
+  drawer:
+    width: "min(88vw, 380px)"
+    backgroundColor: "{colors.surface}"
+    borderColor: "{colors.outline}"
+    padding: "{spacing.s-6} {spacing.s-5}"
+    shadow: "modal"
+  skip-link:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
+    padding: "{spacing.s-3} {spacing.s-5}"
+    rounded: "{rounded.pill}"
+    typography: "{typography.label-md}"
+    shadow: "popover"
+  tablist:
+    gap: "{spacing.s-1}"
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+  tab:
+    height: "{spacing.control-h}"
+    padding: "0 {spacing.s-4}"
+    typography: "{typography.label-md}"
+    textColor: "{colors.on-surface-2}"
+    borderColor: "transparent"
+    borderWidth: "2px"
+  tab-selected:
+    textColor: "{colors.on-surface}"
+    borderColor: "{colors.primary}"
+
+  # ---- form controls -------------------------------------------------------
+  input:
+    height: "{spacing.field-h}"
+    padding: "0 {spacing.s-4}"
+    rounded: "{rounded.md}"
+    typography: "{typography.body-sm}"
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.on-surface}"
+    borderColor: "{colors.outline-strong}"
+    borderWidth: "{spacing.hairline}"
+  input-hover:
+    borderColor: "{colors.on-surface-3}"
+  input-focus: {}                               # ring only; the border does not change
+  input-invalid:
+    borderColor: "{colors.error}"
+  input-disabled:
+    backgroundColor: "{colors.surface-3}"
+    textColor: "{colors.on-surface-3}"
+  input-readonly:
+    backgroundColor: "{colors.surface-2}"
+  textarea:
+    rounded: "{rounded.md}"
+    padding: "{spacing.s-4} {spacing.s-5}"
+    height: "auto"
+    typography: "{typography.body-sm}"
+  input-group:
+    rounded: "{rounded.md}"
+    padding: "{spacing.s-1}"
+    gap: "{spacing.s-1}"
+    backgroundColor: "{colors.surface}"
+    borderColor: "{colors.outline-strong}"
+    borderWidth: "{spacing.hairline}"
+  field-label:
+    typography: "{typography.label-md}"
+    textColor: "{colors.on-surface}"
+  field-hint:
+    typography: "{typography.body-xs}"
+    textColor: "{colors.on-surface-3}"
+  field-error:
+    typography: "{typography.body-xs}"
+    textColor: "{colors.error}"
+    gap: "{spacing.s-2}"
+  checkbox:
+    size: "20px"
+    rounded: "{rounded.xs}"
+    backgroundColor: "{colors.surface}"
+    borderColor: "{colors.outline-strong}"
+    borderWidth: "{spacing.hairline}"
+  checkbox-checked:
+    backgroundColor: "{colors.primary}"
+    borderColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
+  radio:
+    size: "20px"
+    rounded: "{rounded.full}"
+    borderColor: "{colors.outline-strong}"
+    borderWidth: "{spacing.hairline}"
+  radio-checked:
+    backgroundColor: "{colors.primary}"
+    borderColor: "{colors.primary}"
+  toggle-track:
+    width: "44px"
+    height: "26px"
+    rounded: "{rounded.pill}"
+    backgroundColor: "{colors.surface-3}"
+    borderColor: "{colors.outline-strong}"
+    borderWidth: "{spacing.hairline}"
+  toggle-track-checked:
+    backgroundColor: "{colors.primary}"
+    borderColor: "{colors.primary}"
+  toggle-thumb:
+    size: "20px"
+    rounded: "{rounded.full}"
+    backgroundColor: "{colors.surface}"
+    shadow: "raised"
+  select-trigger:
+    height: "{spacing.field-h}"
+    padding: "0 {spacing.s-3} 0 {spacing.s-4}"
+    rounded: "{rounded.md}"
+    typography: "{typography.body-sm}"
+    backgroundColor: "{colors.surface}"
+    borderColor: "{colors.outline-strong}"
+    borderWidth: "{spacing.hairline}"
+    gap: "{spacing.s-3}"
+  select-menu:
+    rounded: "{rounded.md}"
+    padding: "{spacing.s-2}"
+    backgroundColor: "{colors.surface}"
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+    shadow: "popover"
+  select-option:
+    height: "{spacing.control-h-sm}"
+    padding: "0 {spacing.s-3}"
+    rounded: "{rounded.sm}"
+    typography: "{typography.body-sm}"
+    gap: "{spacing.s-3}"
+  select-option-active:
+    backgroundColor: "{colors.surface-3}"
+  select-option-selected:
+    textColor: "{colors.on-surface}"
+    backgroundColor: "{colors.scrim}"
+  segmented:
+    height: "{spacing.control-h}"
+    rounded: "{rounded.md}"
+    padding: "{spacing.s-1}"
+    gap: "2px"
+    backgroundColor: "{colors.surface-2}"
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+  segmented-item:
+    height: "{spacing.control-h-sm}"
+    padding: "0 {spacing.s-4}"
+    rounded: "{rounded.sm}"
+    typography: "{typography.label-md}"
+    textColor: "{colors.on-surface-2}"
+  segmented-item-selected:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.on-surface}"
+    borderColor: "{colors.outline}"
+    shadow: "raised"
+  otp-cell:
+    width: "48px"
+    height: "56px"
+    rounded: "{rounded.sm}"
+    typography: "{typography.headline-sm}"
+    backgroundColor: "{colors.surface}"
+    borderColor: "{colors.outline-strong}"
+    borderWidth: "{spacing.hairline}"
+  otp-cell-filled:
+    borderColor: "{colors.on-surface-3}"
+  otp-cell-invalid:
+    borderColor: "{colors.error}"
+
+  # ---- disclosure / overlay ------------------------------------------------
+  modal:
+    width: "min(92vw, 520px)"
+    rounded: "{rounded.lg}"
+    padding: "{spacing.s-6}"
+    gap: "{spacing.s-5}"
+    backgroundColor: "{colors.surface}"
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+    shadow: "modal"
+  modal-sm:
+    width: "min(92vw, 400px)"
+  modal-lg:
+    width: "min(92vw, 720px)"
+  modal-backdrop:
+    backgroundColor: "{colors.overlay}"
+  sheet:
+    width: "100%"
+    height: "min(88dvh, 640px)"
+    rounded: "{rounded.lg} {rounded.lg} {rounded.none} {rounded.none}"
+    padding: "{spacing.s-5} {spacing.s-5} {spacing.s-6}"
+    backgroundColor: "{colors.surface}"
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+    shadow: "modal"
+  menu:
+    width: "260px"
+    rounded: "{rounded.md}"
+    padding: "{spacing.s-2}"
+    backgroundColor: "{colors.surface}"
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+    shadow: "popover"
+  menu-item:
+    height: "{spacing.control-h-sm}"
+    padding: "0 {spacing.s-3}"
+    rounded: "{rounded.sm}"
+    typography: "{typography.body-sm}"
+    gap: "{spacing.s-3}"
+  menu-item-hover:
+    backgroundColor: "{colors.surface-3}"
+  menu-item-danger:
+    textColor: "{colors.error}"
+  tooltip:
+    rounded: "{rounded.xs}"
+    padding: "{spacing.s-2} {spacing.s-3}"
+    typography: "{typography.label-sm}"
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
+    shadow: "popover"
+  toast:
+    width: "min(92vw, 380px)"
+    rounded: "{rounded.md}"
+    padding: "{spacing.s-4}"
+    gap: "{spacing.s-3}"
+    typography: "{typography.body-sm}"
+    backgroundColor: "{colors.surface}"
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+    shadow: "popover"
+  accordion-item:
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+    rounded: "{rounded.md}"
+    backgroundColor: "{colors.surface}"
+  accordion-trigger:
+    padding: "{spacing.s-4} {spacing.s-5}"
+    typography: "{typography.headline-xs}"
+    gap: "{spacing.s-4}"
+    textColor: "{colors.on-surface}"
+  accordion-panel:
+    padding: "0 {spacing.s-5} {spacing.s-5}"
+    typography: "{typography.body-sm}"
+    textColor: "{colors.on-surface-2}"
+
+  # ---- display -------------------------------------------------------------
+  card:
+    rounded: "{rounded.lg}"
+    padding: "{spacing.s-5}"
+    backgroundColor: "{colors.surface}"
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+    shadow: "flat"
+  card-hover:
+    borderColor: "{colors.outline-strong}"
+    shadow: "raised"
+  divider:
+    height: "{spacing.hairline}"
+    backgroundColor: "{colors.outline}"
+  pill:
+    height: "34px"
+    padding: "0 {spacing.s-4}"
+    rounded: "{rounded.pill}"
+    typography: "{typography.label-sm}"
+    backgroundColor: "{colors.surface}"
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+    gap: "{spacing.s-2}"
+  pill-filled:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
+    borderColor: "transparent"
+  badge-dot:
+    size: "7px"
+    rounded: "{rounded.full}"
+  kbd:
+    height: "22px"
+    padding: "0 {spacing.s-2}"
+    rounded: "{rounded.xs}"
+    typography: "{typography.mono-xs}"
+    backgroundColor: "{colors.surface-2}"
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+    textColor: "{colors.on-surface-2}"
+  callout:
+    rounded: "{rounded.md}"
+    padding: "{spacing.s-4} {spacing.s-5}"
+    gap: "{spacing.s-3}"
+    backgroundColor: "{colors.surface}"
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+  callout-error:
+    backgroundColor: "{colors.error-surface}"
+    borderColor: "{colors.error}"
+  callout-success:
+    backgroundColor: "{colors.success-surface}"
+    borderColor: "{colors.success}"
+  callout-warning:
+    backgroundColor: "{colors.warning-surface}"
+    borderColor: "{colors.warning}"
+  callout-info:
+    backgroundColor: "{colors.info-surface}"
+    borderColor: "{colors.info}"
+  table:
+    typography: "{typography.body-xs}"
+    rounded: "{rounded.md}"
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+    backgroundColor: "{colors.surface}"
+  table-header:
+    typography: "{typography.caption-md}"
+    textColor: "{colors.on-surface-3}"
+    padding: "{spacing.s-4}"
+    backgroundColor: "{colors.surface-2}"
+  table-cell:
+    padding: "{spacing.s-4}"
+    borderColor: "{colors.outline-soft}"
+  avatar:
+    size: "48px"
+    rounded: "{rounded.full}"
+    backgroundColor: "{colors.surface-2}"
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+  avatar-xs: { size: "28px" }
+  avatar-sm: { size: "36px" }
+  avatar-lg: { size: "64px" }
+  avatar-xl: { size: "88px" }
+  code-inline:
+    typography: "{typography.mono-md}"
+    padding: "2px 6px"
+    rounded: "{rounded.xs}"
+    backgroundColor: "{colors.code-surface}"
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+    textColor: "{colors.on-surface}"
+  code-block:
+    typography: "{typography.mono-md}"
+    padding: "{spacing.s-4} 0"
+    rounded: "{rounded.md}"
+    backgroundColor: "{colors.code-surface}"
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+    textColor: "{colors.code-plain}"
+  code-toolbar:
+    height: "{spacing.control-h-sm}"
+    padding: "0 {spacing.s-3} 0 {spacing.s-4}"
+    typography: "{typography.mono-xs}"
+    textColor: "{colors.on-surface-3}"
+    backgroundColor: "{colors.surface-2}"
+    borderColor: "{colors.outline}"
+  scroll-region:
+    rounded: "{rounded.md}"
+    borderColor: "{colors.outline}"
+    borderWidth: "{spacing.hairline}"
+    gap: "{spacing.s-4}"
+
+  # ---- feedback ------------------------------------------------------------
+  skeleton:
+    rounded: "{rounded.sm}"
+    backgroundColor: "{colors.surface-3}"
+  spinner:
+    size: "{spacing.icon-xs}"
+    borderWidth: "2px"
+    borderColor: "currentColor"
+  progress-track:
+    height: "{spacing.s-1}"
+    rounded: "{rounded.pill}"
+    backgroundColor: "{colors.surface-3}"
+  progress-fill:
+    height: "{spacing.s-1}"
+    rounded: "{rounded.pill}"
+    backgroundColor: "{colors.primary}"
+  empty-state:
+    padding: "{spacing.s-9} {spacing.s-5}"
+    gap: "{spacing.s-3}"
+    width: "{spacing.measure-narrow}"
+    textColor: "{colors.on-surface-2}"

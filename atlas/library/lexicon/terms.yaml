@@ -1,0 +1,138 @@
+# The lexicon: how we spell our names, and which habits we have decided against.
+#
+# `atlas lint` reads this file directly, so adding an entry here is how you
+# change the house style. One line, one pull request, enforced everywhere.
+#
+#   terms    — names with exactly one written form (LANGUAGE L-01)
+#   phrases  — writing habits, each paired with what to write instead (L-02)
+#
+# severity: error fails a run; warn is reported and does not.
+standard: editorial/1.0
+version: "1.0"
+updated: 2026-08-08
+owner: role:editorial-lead
+
+terms:
+  - id: atlas
+    use: Atlas
+    avoid: [ATLAS]
+    kind: product
+    severity: error
+    note: "The product is Atlas. The command is lower-case `atlas`, in code."
+
+  - id: front-matter
+    use: front matter
+    avoid: [frontmatter, front-matter]
+    kind: concept
+    severity: error
+    note: "Two words, as in typesetting."
+
+  - id: workstream
+    use: workstream
+    avoid: [work stream]
+    kind: concept
+    severity: error
+    note: "One thing, one word."
+
+  - id: changelog
+    use: changelog
+    avoid: [change log]
+    kind: concept
+    severity: error
+    note: "The file is CHANGELOG.md."
+
+  - id: github
+    use: GitHub
+    avoid: [Github, GITHUB]
+    kind: product
+    severity: error
+    note: "Their capitalisation, not ours."
+
+  - id: markdown
+    use: Markdown
+    avoid: [markdown, MarkDown]
+    kind: format
+    severity: warn
+    note: "A proper noun. Lower-case only as a code-fence label."
+
+  - id: email
+    use: email
+    avoid: [e-mail, Email]
+    kind: concept
+    severity: warn
+
+  - id: website
+    use: website
+    avoid: [web site, web-site]
+    kind: concept
+    severity: warn
+
+  - id: sign-off
+    use: sign-off
+    avoid: [signoff]
+    kind: concept
+    severity: warn
+    note: "Hyphenated as a noun; `sign off` as a verb is correct."
+
+  - id: pull-request
+    use: pull request
+    avoid: [Pull Request, pull-request]
+    kind: concept
+    severity: warn
+
+  - id: setup
+    use: set up
+    avoid: [setup the, setup a, setup your]
+    kind: grammar
+    severity: warn
+    note: "`set up` is the verb; `setup` is the noun."
+
+  - id: log-in
+    use: log in
+    avoid: [login to, login into]
+    kind: grammar
+    severity: warn
+    note: "`log in` is the verb; `login` is the noun."
+
+phrases:
+  # Shorter word, same meaning (VOICE V-03)
+  - {avoid: utilize, use: use, reason: "shorter word, same meaning"}
+  - {avoid: utilise, use: use, reason: "shorter word, same meaning"}
+  - {avoid: leverage, use: use, reason: "shorter word, same meaning"}
+  - {avoid: facilitate, use: help, reason: "shorter word, same meaning"}
+  - {avoid: commence, use: start, reason: "shorter word, same meaning"}
+  - {avoid: terminate, use: end, reason: "shorter word, same meaning"}
+  - {avoid: endeavour, use: try, reason: "shorter word, same meaning"}
+  - {avoid: ascertain, use: find out, reason: "shorter word, same meaning"}
+  - {avoid: additional, use: more, reason: "shorter word, same meaning"}
+
+  # Long connectives (V-03, V-04)
+  - {avoid: in order to, use: to, reason: "the extra words carry nothing"}
+  - {avoid: prior to, use: before, reason: "the extra words carry nothing"}
+  - {avoid: subsequent to, use: after, reason: "the extra words carry nothing"}
+  - {avoid: in the event that, use: if, reason: "the extra words carry nothing"}
+  - {avoid: due to the fact that, use: because, reason: "the extra words carry nothing"}
+  - {avoid: a number of, use: some, or the number, reason: "vague where a number would do"}
+  - {avoid: at this point in time, use: now, reason: "the extra words carry nothing"}
+
+  # Filler openers (V-08)
+  - {avoid: it is important to note that, use: "nothing — delete it and state the fact", reason: "if it were not important it would not be here"}
+  - {avoid: please note that, use: "nothing — delete it and state the fact", reason: "the reader is already reading"}
+  - {avoid: needless to say, use: "nothing — delete it, or say it", reason: "one or the other"}
+
+  # Claims without evidence (V-05)
+  - {avoid: best-in-class, use: "the measurement that makes the claim true", reason: "a claim needs a number"}
+  - {avoid: world-class, use: "the measurement that makes the claim true", reason: "a claim needs a number"}
+  - {avoid: cutting-edge, use: "what it actually does", reason: "a claim needs a number"}
+  - {avoid: state-of-the-art, use: "what it actually does", reason: "a claim needs a number"}
+  - {avoid: seamless, use: "what happens instead of the seam", reason: "describes an absence, not a feature"}
+  - {avoid: synergy, use: "the two things and what they do together", reason: "names nothing"}
+  - {avoid: game-changing, use: "what changed, for whom", reason: "a claim needs a number"}
+
+  # Intensifiers that weaken (V-07)
+  - {avoid: very, use: "a stronger word, or nothing", reason: "the adjective should carry it"}
+  - {avoid: really, use: "a stronger word, or nothing", reason: "the adjective should carry it"}
+  - {avoid: quite, use: "a stronger word, or nothing", reason: "the adjective should carry it"}
+  - {avoid: obviously, use: "nothing — delete it", reason: "if it were obvious, nobody would be reading"}
+  - {avoid: simply, use: "nothing — delete it", reason: "it is only simple once you know"}
+  - {avoid: just, use: "nothing — delete it", reason: "it shrinks the thing you are asking for"}

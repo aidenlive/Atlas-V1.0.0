@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://atlas-standard.dev/schemas/workstream/1.0/workstream.schema.json",
+  "title": "workstream.yaml — WORKSTREAM manifest (standard workstream/1.0)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["standard", "id", "slug", "title", "status", "owner", "opened"],
+  "properties": {
+    "standard": { "const": "workstream/1.0" },
+    "id": { "type": "string", "pattern": "^[0-9]{2,4}$", "description": "W-03: zero-padded ordinal; assigned once, never reused" },
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "title": { "type": "string", "minLength": 3, "maxLength": 80 },
+    "summary": { "type": "string", "maxLength": 300 },
+    "status": { "enum": ["planned", "active", "blocked", "review", "done", "cancelled"] },
+    "owner": { "type": "string", "pattern": "^(person|team):[a-z0-9-]+$", "description": "W-I6: exactly one accountable principal" },
+    "opened": { "type": "string", "format": "date" },
+    "target": { "anyOf": [{ "type": "string", "format": "date" }, { "type": "null" }] },
+    "closed": { "anyOf": [{ "type": "string", "format": "date" }, { "type": "null" }] },
+    "progress": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tasks_total", "tasks_done"],
+      "description": "W-10: derived from 02_tasks/tasks.md by tooling; never hand-edited",
+      "properties": {
+        "tasks_total": { "type": "integer", "minimum": 0 },
+        "tasks_done": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "depends_on": { "type": "array", "items": { "type": "string", "pattern": "^[0-9]{2,4}$" }, "uniqueItems": true },
+    "blocks": { "type": "array", "items": { "type": "string", "pattern": "^[0-9]{2,4}$" }, "uniqueItems": true },
+    "relates_to": { "type": "array", "items": { "type": "string", "pattern": "^[0-9]{2,4}$" }, "uniqueItems": true },
+    "agents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "role", "scope"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^(agent|person|team):[a-z0-9-]+$" },
+          "role": { "enum": ["orchestrator", "sub-agent"] },
+          "scope": { "type": "string", "minLength": 3, "description": "W-14: concrete paths or task IDs" },
+          "expires": { "type": "string", "format": "date" }
+        }
+      }
+    },
+    "tags": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" }, "uniqueItems": true }
+  },
+  "allOf": [
+    {
+      "$comment": "W-09: terminal statuses must record a close date",
+      "if": { "properties": { "status": { "enum": ["done", "cancelled"] } }, "required": ["status"] },
+      "then": { "required": ["closed"], "properties": { "closed": { "type": "string" } } }
+    },
+    {
+      "$comment": "W-09/W-I5: non-terminal workstreams have no close date",
+      "if": { "properties": { "status": { "enum": ["planned", "active", "blocked", "review"] } }, "required": ["status"] },
+      "then": { "properties": { "closed": { "type": "null" } } }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+# Design tokens for generated assets. `scripts/build_assets.py` reads this file
+# and project.yaml; nothing here is duplicated in an SVG by hand.
+version: "1.0"
+updated: 2026-08-08
+
+themes:
+  light:
+    background: "#FBFAF8"
+    surface: "#FFFFFF"
+    border: "#E3DFD7"
+    text: "#1B1A17"
+    muted: "#5C574E"
+    accent: "#8A5A2B"
+  dark:
+    background: "#14130F"
+    surface: "#1D1B17"
+    border: "#33302A"
+    text: "#F4F1EA"
+    muted: "#A9A296"
+    accent: "#D9A066"
+
+# One colour per state, used for the badge dot. The text repeats the state, so
+# colour is never the only signal (PUBLICATION P-05).
+states:
+  active: "#2F7A46"
+  stable: "#2F6FB0"
+  release: "#8A5A2B"
+  standard: "#5C4B8A"
+  ci: "#2F7A46"
+  license: "#5C574E"
+
+typography:
+  sans: "ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
+  mono: "ui-monospace, SFMono-Regular, Menlo, monospace"

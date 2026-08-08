@@ -1,0 +1,1 @@
+Write the constraints for an agent working in this repository: what it may change, what it must propose before changing, and which files are generated and therefore off limits.

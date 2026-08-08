@@ -1,0 +1,10 @@
+# Forge metadata as code (PRESENTATION P-05). Mirror of project.yaml metadata.
+repository:
+  name: {{PROJECT_NAME}}
+  description: "One sentence, <=160 chars, value-first"
+  topics: tool, changeme, changeme-domain
+  has_wiki: false
+  default_branch: main
+  allow_squash_merge: true
+  allow_merge_commit: false
+  delete_branch_on_merge: true

@@ -1,0 +1,3 @@
+Plan a migration of my current file mess into WORKSPACE using the four bounded
+passes (scaffold, declare bankruptcy on history, rehome the last ~90 days, wire
+the plumbing). Output the plan with time estimates before touching anything.

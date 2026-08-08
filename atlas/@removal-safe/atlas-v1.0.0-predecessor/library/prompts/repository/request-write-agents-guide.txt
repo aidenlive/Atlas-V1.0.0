@@ -1,0 +1,4 @@
+Write or update AGENTS.md with all seven required sections (purpose, map,
+commands, conventions, constraints, definition of done, pointers), verifying
+every command is copy-paste true by running it. Reduce any vendor agent files to
+three-line stubs.

@@ -1,0 +1,3 @@
+Add automated tests covering the quickstart path and every documented public
+behavior — the docs are the test spec. Mirror src/ topology under tests/ and
+wire the suite into CI.

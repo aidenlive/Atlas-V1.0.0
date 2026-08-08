@@ -1,0 +1,3 @@
+Provision the named AI agent as a first-class principal: its own identity,
+scoped grants no higher than maintainer, an expiry or review date, and an entry
+in the relevant manifests. Never configure it to run on a human's credentials.

@@ -1,0 +1,1 @@
+Compare the translated document below against its source and list every place where a fact, a number, or an instruction differs. Report differences only; do not correct them yet.

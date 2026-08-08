@@ -1,0 +1,407 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://atlas-standard.dev/schemas/project/1.0/project.schema.json",
+  "title": "project.yaml \u2014 atlas manifest (standard project/1.0)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "standard",
+    "name",
+    "type",
+    "stage",
+    "maturity",
+    "owner",
+    "visibility"
+  ],
+  "properties": {
+    "standard": {
+      "const": "project/1.0"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "lowercase-hyphenated, noun-first (PROJECT.md \u00a710.1)"
+    },
+    "type": {
+      "description": "PROJECT-MATRIX D1; x- prefix permitted for local extensions",
+      "anyOf": [
+        {
+          "enum": [
+            "app.web",
+            "app.mobile",
+            "app.desktop",
+            "app.tui",
+            "lib.package",
+            "lib.framework",
+            "lib.sdk",
+            "lib.plugin",
+            "service.api",
+            "service.worker",
+            "service.gateway",
+            "service.mcp",
+            "tool.cli",
+            "tool.action",
+            "tool.script",
+            "platform.infra",
+            "platform.design",
+            "platform.template",
+            "platform.config",
+            "content.docs",
+            "content.spec",
+            "content.data",
+            "content.research"
+          ]
+        },
+        {
+          "type": "string",
+          "pattern": "^x-[a-z]+\\.[a-z0-9-]+$"
+        }
+      ]
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "http-api",
+          "cli",
+          "sdk",
+          "ui",
+          "mcp",
+          "template"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "stage": {
+      "enum": [
+        "idea",
+        "incubating",
+        "active",
+        "maintenance",
+        "deprecated",
+        "archived"
+      ]
+    },
+    "maturity": {
+      "enum": [
+        "experimental",
+        "alpha",
+        "beta",
+        "stable",
+        "hardened"
+      ]
+    },
+    "packaging": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "registry",
+          "container",
+          "binary",
+          "installer",
+          "bundle",
+          "source",
+          "none"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "deployment": {
+      "enum": [
+        "none",
+        "client",
+        "serverless",
+        "managed.paas",
+        "managed.k8s",
+        "selfhosted",
+        "embedded"
+      ]
+    },
+    "owner": {
+      "type": "string",
+      "pattern": "^(team:[a-z0-9-]+|person:[a-z0-9-]+|community|unowned)$",
+      "description": "PROJECT-MATRIX D6; 'unowned' is a defect, legal only during deprecated\u2192archived, max 90 days"
+    },
+    "visibility": {
+      "enum": [
+        "public",
+        "internal",
+        "restricted",
+        "private"
+      ]
+    },
+    "support": {
+      "enum": [
+        "none",
+        "best-effort",
+        "business-hours",
+        "sla"
+      ]
+    },
+    "language": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "successor": {
+      "description": "required non-null (or explicit 'none') when stage: deprecated",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "sunset_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "forge_archived": {
+      "type": "boolean"
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {
+        "docs": {
+          "type": "string"
+        },
+        "runbook": {
+          "type": "string"
+        },
+        "tracker": {
+          "type": "string"
+        },
+        "spec": {
+          "type": "string"
+        }
+      }
+    },
+    "waivers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "reason",
+          "until",
+          "approver"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Z]{2,3}-[0-9]{2}$"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 10
+          },
+          "until": {
+            "type": "string",
+            "format": "date"
+          },
+          "approver": {
+            "type": "string",
+            "pattern": "^(team:[a-z0-9-]+|person:[a-z0-9-]+)$"
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "description",
+        "topics"
+      ],
+      "description": "PRESENTATION spec P-01..P-05: forge metadata, declared not click-configured",
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 160
+        },
+        "website": {
+          "type": "string",
+          "pattern": "^(https?://|\\./).+"
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "minItems": 3,
+          "maxItems": 10,
+          "uniqueItems": true
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$comment": "Matrix rule: deprecated-needs-successor",
+      "if": {
+        "properties": {
+          "stage": {
+            "const": "deprecated"
+          }
+        },
+        "required": [
+          "stage"
+        ]
+      },
+      "then": {
+        "required": [
+          "successor",
+          "sunset_date"
+        ],
+        "properties": {
+          "successor": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "$comment": "Matrix rule: archived requires forge_archived true",
+      "if": {
+        "properties": {
+          "stage": {
+            "const": "archived"
+          }
+        },
+        "required": [
+          "stage"
+        ]
+      },
+      "then": {
+        "required": [
+          "forge_archived"
+        ],
+        "properties": {
+          "forge_archived": {
+            "const": true
+          }
+        }
+      }
+    },
+    {
+      "$comment": "Matrix rule: running-needs-runbook",
+      "if": {
+        "properties": {
+          "deployment": {
+            "enum": [
+              "managed.paas",
+              "managed.k8s",
+              "serverless"
+            ]
+          }
+        },
+        "required": [
+          "deployment"
+        ]
+      },
+      "then": {
+        "required": [
+          "links"
+        ],
+        "properties": {
+          "links": {
+            "required": [
+              "runbook"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "$comment": "Matrix D8 invariant: support >= business-hours requires maturity >= stable and stage in {active, maintenance}",
+      "if": {
+        "properties": {
+          "support": {
+            "enum": [
+              "business-hours",
+              "sla"
+            ]
+          }
+        },
+        "required": [
+          "support"
+        ]
+      },
+      "then": {
+        "properties": {
+          "maturity": {
+            "enum": [
+              "stable",
+              "hardened"
+            ]
+          },
+          "stage": {
+            "enum": [
+              "active",
+              "maintenance"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "$comment": "Matrix rule: sla-needs-hardening",
+      "if": {
+        "properties": {
+          "support": {
+            "const": "sla"
+          }
+        },
+        "required": [
+          "support"
+        ]
+      },
+      "then": {
+        "properties": {
+          "maturity": {
+            "const": "hardened"
+          },
+          "owner": {
+            "not": {
+              "const": "unowned"
+            }
+          }
+        }
+      }
+    },
+    {
+      "$comment": "PRESENTATION P-04: public visibility requires metadata.website",
+      "if": {
+        "properties": {
+          "visibility": {
+            "const": "public"
+          }
+        },
+        "required": [
+          "visibility",
+          "metadata"
+        ]
+      },
+      "then": {
+        "properties": {
+          "metadata": {
+            "required": [
+              "website"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

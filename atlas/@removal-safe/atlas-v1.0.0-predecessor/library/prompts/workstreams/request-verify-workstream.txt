@@ -1,0 +1,3 @@
+Verify this workstream against its own acceptance criteria: check each one,
+record how it was checked, by whom, and the result. Report criteria you cannot
+verify as failures rather than assuming success.

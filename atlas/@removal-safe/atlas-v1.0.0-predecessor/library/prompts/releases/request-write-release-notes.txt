@@ -1,0 +1,3 @@
+Write release notes for the new version derived from CHANGELOG.md, ordered by
+consumer impact: breaking changes with migration steps first, then features,
+then fixes. Link the full changelog; invent nothing not in it.

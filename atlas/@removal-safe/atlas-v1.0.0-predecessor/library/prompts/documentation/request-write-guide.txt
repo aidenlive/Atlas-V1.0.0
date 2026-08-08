@@ -1,0 +1,3 @@
+Write a task-oriented guide in docs/guides/ for the named workflow:
+prerequisites, exact steps, verification, and failure modes. Test every step
+before writing it down.

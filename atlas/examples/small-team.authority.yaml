@@ -1,0 +1,37 @@
+# The smallest authority file that still satisfies A-04: nobody approves alone.
+standard: editorial/1.0
+
+principals:
+  - id: person:ana
+    name: Ana Ruiz
+    kind: person
+    contact: ana@example.com
+  - id: person:bo
+    name: Bo Chen
+    kind: person
+  - id: agent:drafting-assistant
+    name: Drafting assistant
+    kind: agent
+
+roles:
+  - name: editor
+    held_by: [person:ana]
+    may: [draft, edit, review, approve, publish, retire]
+  - name: reviewer
+    held_by: [person:bo]
+    may: [draft, edit, review, approve]
+    note: "Second pair of eyes. Without this role, Ana would approve her own work."
+  - name: agent
+    held_by: [agent:drafting-assistant]
+    may: [draft, edit, review]
+
+approvals:
+  - change: editorial
+    requires: [person:bo]
+  - change: publication
+    requires: [person:ana, person:bo]
+
+escalation:
+  - person:ana
+
+review_cadence_days: 180

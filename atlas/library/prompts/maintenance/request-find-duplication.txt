@@ -1,0 +1,1 @@
+Find every fact stated in more than one of the documents below. For each, propose which document should own it and where the others should link instead.

@@ -1,0 +1,4 @@
+Turn the following goal into a well-posed agent task: the objective, the
+definition of done from AGENTS.md, the relevant constraints, and the
+verification the agent must run before claiming completion. Ambiguity in the
+task is a defect in the delegation.

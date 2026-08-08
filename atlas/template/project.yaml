@@ -1,0 +1,24 @@
+# project.yaml — the machine-readable source of truth for this repository.
+# Every fact here is checked: `atlas validate project.yaml`.
+standard: editorial/1.0
+name: "{{NAME}}"
+kind: guide                    # standards | guide | reference | handbook | marketing
+                               # | product | support | internal | mixed — see MATRIX
+stage: draft                   # idea | draft | active | maintained | frozen | retired
+maturity: sketch               # sketch | working | stable | authoritative
+owner: "{{OWNER}}"               # must also appear in authority.yaml
+audiences: [internal]          # who this is written for — see MATRIX
+channels: [repository]
+languages: [en]
+visibility: internal
+support: best-effort
+successor: null
+
+metadata:
+  description: "{{DESCRIPTION}}"
+  website: https://example.com/{{NAME}}
+  topics: [editorial, documentation, "{{NAME}}"]
+
+links:
+  docs: ./docs/
+  lexicon: ./library/lexicon/terms.yaml

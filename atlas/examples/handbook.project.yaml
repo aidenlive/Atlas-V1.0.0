@@ -1,0 +1,26 @@
+# An internal handbook: several audiences, maintained rather than active.
+standard: editorial/1.0
+name: people-handbook
+kind: handbook
+stage: maintained
+maturity: authoritative
+owner: team:people-ops
+audiences: [internal, leadership, candidates]
+channels: [handbook, docs-site]
+languages: [en, de]
+visibility: internal
+support: maintained
+successor: null
+
+metadata:
+  description: "How we work here: policies, benefits, and the decisions behind them"
+  website: https://handbook.example.com
+  topics: [handbook, policy, people-ops, internal]
+
+links:
+  docs: ./docs/
+  lexicon: ./library/lexicon/terms.yaml
+
+lint:
+  max_sentence_words: 28      # policy prose is read under stress; keep it short
+  max_paragraph_sentences: 5

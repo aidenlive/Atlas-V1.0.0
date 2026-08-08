@@ -1,0 +1,3 @@
+Exercise the rollback procedure for this service in a safe environment, record
+the actual time and steps taken, and update the runbook where reality diverged
+from the document. An unexercised rollback is a rumor.

@@ -1,0 +1,4 @@
+Enforce the closed root set: move every unsanctioned root entry into its role
+directory, delete dead files in one labeled commit with a changelog entry, and
+update the compliance checker's allow-list only via an ADR if something
+genuinely new must stay.
